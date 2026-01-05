@@ -1,6 +1,7 @@
 import XCTest
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class RecurringExpenseTests: XCTestCase {
     let calendar = Calendar.current
     

@@ -1,7 +1,8 @@
 import XCTest
 import SwiftUI
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class AmountKeypadTests: XCTestCase {
     
     // Simulating the logic that will be in the View or a ViewModel

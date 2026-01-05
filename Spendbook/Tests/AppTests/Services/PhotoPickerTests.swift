@@ -1,7 +1,8 @@
 import XCTest
 import SwiftUI
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class PhotoPickerTests: XCTestCase {
     
     // Simulate Image Handling Logic

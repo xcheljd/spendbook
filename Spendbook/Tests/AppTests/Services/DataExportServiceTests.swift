@@ -1,7 +1,8 @@
 import XCTest
 import SwiftData
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class DataExportServiceTests: XCTestCase {
     
     // MARK: - Test Helpers

@@ -1,6 +1,7 @@
 import XCTest
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class NavigationTests: XCTestCase {
     
     func testNavigationState() {

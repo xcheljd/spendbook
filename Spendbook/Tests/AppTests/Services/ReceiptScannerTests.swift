@@ -1,10 +1,15 @@
 import XCTest
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class ReceiptScannerTests: XCTestCase {
-    
+    var scanner: ReceiptScannerService!
+
+    override func setUpWithError() throws {
+        scanner = ReceiptScannerService()
+    }
+
     func testAmountExtraction() {
-        let scanner = ReceiptScannerService()
         
         // Basic Total
         XCTAssertEqual(scanner.extractAmount(from: "Total: 12.34"), 12.34)
@@ -30,8 +35,6 @@ final class ReceiptScannerTests: XCTestCase {
     }
     
     func testDateExtraction() {
-        let scanner = ReceiptScannerService()
-        
         let text1 = "Date: 12/28/2025"
         let date1 = scanner.extractDate(from: text1)
         XCTAssertNotNil(date1)

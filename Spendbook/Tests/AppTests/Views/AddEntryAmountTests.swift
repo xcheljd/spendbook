@@ -1,6 +1,7 @@
 import XCTest
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class AddEntryAmountTests: XCTestCase {
     
     // Logic that will be in the View or ViewModel

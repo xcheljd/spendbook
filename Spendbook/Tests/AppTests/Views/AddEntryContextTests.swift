@@ -1,7 +1,8 @@
 import XCTest
 import SwiftData
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class AddEntryContextTests: XCTestCase {
     
     // Simulate ViewModel logic
@@ -15,7 +16,7 @@ final class AddEntryContextTests: XCTestCase {
             return !selectedTags.isEmpty
         }
         
-        func save(amount: Decimal, dataManager: DataManager) {
+        func save(amount: Decimal, context: ModelContext) {
             // Logic to create expense
         }
     }

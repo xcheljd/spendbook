@@ -1,7 +1,8 @@
 import XCTest
 import SwiftData
-@testable import Spendbook
+@testable import SpendBook
 
+@MainActor
 final class ChartDataServiceTests: XCTestCase {
     
     // Helper to create date
