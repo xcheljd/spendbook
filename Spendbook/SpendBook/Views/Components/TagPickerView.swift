@@ -7,6 +7,7 @@ struct TagPickerView: View {
     @Query(sort: \Expense.date, order: .reverse) private var recentExpenses: [Expense]
     @State private var searchText = ""
     @State private var currentParent: Tag?
+    @State private var showInactiveTags = false
     @Environment(\.modelContext) private var modelContext
     @State private var showingNewTagSheet = false
     @State private var newTagName = ""
@@ -19,15 +20,18 @@ struct TagPickerView: View {
         // Only consider last 90 days of expenses for pattern analysis
         let ninetyDaysAgo = Calendar.current.date(byAdding: .day, value: -90, to: Date()) ?? Date()
         let relevantExpenses = recentExpenses.filter { $0.date >= ninetyDaysAgo }
-        return smartTagService.getSuggestedTags(from: allTags, expenses: relevantExpenses)
+        let activeTags = allTags.filter { $0.isActive }
+        return smartTagService.getSuggestedTags(from: activeTags, expenses: relevantExpenses)
     }
     
-    // Filter tags based on search and hierarchy
+    // Filter tags based on search, hierarchy, and active state
     var filteredTags: [Tag] {
+        let tagsToFilter = showInactiveTags ? allTags : allTags.filter { $0.isActive }
+        
         if !searchText.isEmpty {
-            return allTags.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return tagsToFilter.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
-        return allTags.filter { $0.parent == currentParent }
+        return tagsToFilter.filter { $0.parent == currentParent }
     }
     
     var body: some View {
@@ -90,7 +94,11 @@ struct TagPickerView: View {
                         
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 10) {
                             ForEach(filteredTags) { tag in
-                                TagButton(tag: tag, isSelected: selectedTags.contains(tag)) {
+                                TagButton(
+                                    tag: tag,
+                                    isSelected: selectedTags.contains(tag),
+                                    showInactive: showInactiveTags
+                                ) {
                                     toggleSelection(for: tag)
                                 } onNavigate: {
                                     withAnimation {
@@ -117,6 +125,23 @@ struct TagPickerView: View {
                                             .stroke(Color.Catppuccin.overlay0, lineWidth: 1)
                                     )
                                 }
+                            }
+                        }
+                        
+                        // Show inactive tags toggle
+                        if !showInactiveTags && allTags.contains(where: { !$0.isActive }) {
+                            Button(action: {
+                                withAnimation {
+                                    showInactiveTags = true
+                                }
+                            }) {
+                                HStack {
+                                    Image(systemName: "eye.slash")
+                                    Text("Show inactive tags")
+                                }
+                                .font(.caption)
+                                .foregroundColor(Color.Catppuccin.overlay1)
+                                .padding(.top, 8)
                             }
                         }
                     }
@@ -159,6 +184,7 @@ struct TagPickerView: View {
 struct TagButton: View {
     let tag: Tag
     let isSelected: Bool
+    var showInactive: Bool = false
     let action: () -> Void
     let onNavigate: () -> Void
     
@@ -173,6 +199,7 @@ struct TagButton: View {
                     .font(.subheadline)
                     .fontWeight(isSelected ? .semibold : .regular)
                     .foregroundColor(isSelected ? Color.Catppuccin.base : Color(hex: tag.colorHex))
+                    .opacity(tag.isActive ? 1.0 : 0.5)
                     .padding(.vertical, 8)
                     .padding(.leading, 16)
                     .padding(.trailing, hasChildren ? 8 : 16)
@@ -183,6 +210,7 @@ struct TagButton: View {
                     Image(systemName: "chevron.right")
                         .font(.system(size: 10, weight: .bold))
                         .foregroundColor(isSelected ? Color.Catppuccin.base : Color(hex: tag.colorHex))
+                        .opacity(tag.isActive ? 1.0 : 0.5)
                         .padding(.trailing, 12)
                         .padding(.vertical, 8)
                 }
@@ -191,10 +219,12 @@ struct TagButton: View {
         .background(
             Capsule()
                 .fill(isSelected ? Color(hex: tag.colorHex) : Color.Catppuccin.mantle)
+                .opacity(tag.isActive ? 1.0 : 0.5)
         )
         .overlay(
             Capsule()
                 .stroke(Color(hex: tag.colorHex), lineWidth: 1)
+                .opacity(tag.isActive ? 1.0 : 0.3)
         )
     }
 }

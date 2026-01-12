@@ -60,17 +60,38 @@ struct AccountabilityService {
     // MARK: - No-Spend Streak
     
     func calculateNoSpendStreak(from expenses: [Expense]) -> Int {
+        // If there are no expenses at all, there's no tracking happening, so streak is 0
+        guard !expenses.isEmpty else {
+            return 0
+        }
+        
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
         
         // Get all dates where spending occurred, unique by day
         let spendDates = Set(expenses.map { calendar.startOfDay(for: $0.date) })
         
+        // If today has spending, no-spend streak is 0
+        if spendDates.contains(today) {
+            return 0
+        }
+        
+        // Find the most recent day with spending
+        let sortedSpendDates = spendDates.sorted(by: >)
+        guard let mostRecentSpendDate = sortedSpendDates.first else {
+            return 0
+        }
+        
+        // If the most recent spending was today, streak is 0 (already checked above, but belt & suspenders)
+        if mostRecentSpendDate == today {
+            return 0
+        }
+        
+        // Count consecutive no-spend days from today backwards until we hit a spending day
         var streak = 0
         var checkDate = today
         
-        // Count backwards from today until we hit a day with spending
-        while !spendDates.contains(checkDate) {
+        while !spendDates.contains(checkDate) && checkDate > mostRecentSpendDate {
             streak += 1
             guard let nextDate = calendar.date(byAdding: .day, value: -1, to: checkDate) else { break }
             checkDate = nextDate

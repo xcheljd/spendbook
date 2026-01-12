@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Camera Permission for Receipt Scanning -->
+	<key>NSCameraUsageDescription</key>
+	<string>Spendbook needs access to your camera to scan receipts and automatically extract expense information.</string>
+	
+	<!-- Photo Library Permission for Receipt Images -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Spendbook needs access to your photo library to scan receipts and automatically extract expense information.</string>
+	
+	<!-- Face ID Permission for Security Lock -->
+	<key>NSFaceIDUsageDescription</key>
+	<string>Spendbook uses Face ID to securely lock and unlock your financial data.</string>
+	
+	<!-- App Name -->
+	<key>CFBundleDisplayName</key>
+	<string>Spendbook</string>
+	
+	<!-- URL Scheme for Deep Links -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.yourcompany.spendbook</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>spendbook</string>
+			</array>
+		</dict>
+	</array>
+	
+	<!-- App Transport Security (if needed for any network calls) -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
+	
+	<!-- Support for document types for export -->
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Spendbook Export</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.yourcompany.spendbook.export</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>csv</string>
+					<string>json</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

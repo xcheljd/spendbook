@@ -40,22 +40,37 @@ struct QuickAddWidgetProvider: TimelineProvider {
 
 // MARK: - Quick Add Widget View
 struct QuickAddWidgetView: View {
+    // Rotating friendly copy options
+    private var friendlyCopy: String {
+        let options = [
+            "Log expense",
+            "What'd you spend?",
+            "Quick add",
+            "Tap to track"
+        ]
+        // Use day of year to rotate copy daily
+        let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 0
+        return options[dayOfYear % options.count]
+    }
+
     var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: "plus.circle.fill")
-                .font(.system(size: 40))
-                .foregroundColor(Color.Catppuccin.green)
-            
-            Text("Add Expense")
-                .font(.headline)
+        VStack(spacing: 12) {
+            Spacer()
+
+            // Gradient button with shadow and depth
+            QuickAddButton(size: 60)
+
+            Spacer()
+                .frame(height: 4)
+
+            // Friendly copy
+            Text(friendlyCopy)
+                .font(.system(size: 13, weight: .semibold, design: .rounded))
                 .foregroundColor(Color.Catppuccin.text)
-            
-            Text("Tap to log")
-                .font(.caption)
-                .foregroundColor(Color.Catppuccin.subtext0)
+
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.Catppuccin.base)
         .widgetURL(URL(string: "spendbook://add"))
     }
 }
@@ -67,7 +82,14 @@ struct QuickAddWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: QuickAddWidgetProvider()) { entry in
             QuickAddWidgetView()
-                .containerBackground(Color.Catppuccin.base, for: .widget)
+                .containerBackground(for: .widget) {
+                    RadialGradient(
+                        colors: [Color.Catppuccin.mantle, Color.Catppuccin.base],
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: 120
+                    )
+                }
         }
         .configurationDisplayName("Quick Add")
         .description("Quickly add a new expense")

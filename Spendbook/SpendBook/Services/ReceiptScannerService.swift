@@ -3,49 +3,91 @@ import Vision
 import UIKit
 import Combine
 
+enum ReceiptScanError: LocalizedError {
+    case invalidImage
+    case ocrFailed(Error)
+    case noTextFound
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidImage:
+            return "Could not process the image. Please try another photo."
+        case .ocrFailed(let error):
+            return "Failed to read text from receipt: \(error.localizedDescription)"
+        case .noTextFound:
+            return "No text found in the image. Please try a clearer photo."
+        }
+    }
+}
+
 @MainActor
 final class ReceiptScannerService: ObservableObject {
     @Published var isScanning = false
-    
-    // Main function to scan image
+
+    private static let maxImageDimension: CGFloat = 2048
+
     func scanReceipt(_ image: UIImage) async throws -> (amount: Decimal?, date: Date?) {
         isScanning = true
         defer { isScanning = false }
-        
-        let recognizedText = try await performOCR(on: image)
+
+        let resizedImage = Self.resizeImageIfNeeded(image)
+        let recognizedText = try await Self.performOCR(on: resizedImage)
         let amount = extractAmount(from: recognizedText)
         let date = extractDate(from: recognizedText)
-        
+
         return (amount, date)
     }
-    
-    // Vision Framework Integration
-    private func performOCR(on image: UIImage) async throws -> String {
-        guard let cgImage = image.cgImage else { return "" }
-        
+
+    private static func resizeImageIfNeeded(_ image: UIImage) -> UIImage {
+        let size = image.size
+        guard size.width > maxImageDimension || size.height > maxImageDimension else {
+            return image
+        }
+
+        let scale = maxImageDimension / max(size.width, size.height)
+        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
+
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+        return renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: newSize))
+        }
+    }
+
+    private nonisolated static func performOCR(on image: UIImage) async throws -> String {
+        guard let cgImage = image.cgImage else {
+            throw ReceiptScanError.invalidImage
+        }
+
         return try await withCheckedThrowingContinuation { continuation in
+            var hasResumed = false
+
             let request = VNRecognizeTextRequest { request, error in
+                guard !hasResumed else { return }
+                hasResumed = true
+
                 if let error = error {
-                    continuation.resume(throwing: error)
+                    continuation.resume(throwing: ReceiptScanError.ocrFailed(error))
                     return
                 }
-                
-                guard let observations = request.results as? [VNRecognizedTextObservation] else { 
+
+                guard let observations = request.results as? [VNRecognizedTextObservation], !observations.isEmpty else {
                     continuation.resume(returning: "")
                     return
                 }
-                
+
                 let text = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
                 continuation.resume(returning: text)
             }
-            
+
             request.recognitionLevel = .accurate
-            
+
             let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
             do {
                 try handler.perform([request])
             } catch {
-                continuation.resume(throwing: error)
+                guard !hasResumed else { return }
+                hasResumed = true
+                continuation.resume(throwing: ReceiptScanError.ocrFailed(error))
             }
         }
     }

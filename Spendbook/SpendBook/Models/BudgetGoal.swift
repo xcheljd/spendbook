@@ -13,17 +13,28 @@ enum BudgetPeriod: String, Codable {
 
 @Model
 final class BudgetGoal {
-    var type: BudgetGoalType
-    var period: BudgetPeriod
+    private var typeRawValue: String
+    private var periodRawValue: String
     var limitAmount: Decimal
     var createdAt: Date
     
     @Relationship
     var tag: Tag?
+    
+    // Computed properties to access enums
+    var type: BudgetGoalType {
+        get { BudgetGoalType(rawValue: typeRawValue) ?? .total }
+        set { typeRawValue = newValue.rawValue }
+    }
+    
+    var period: BudgetPeriod {
+        get { BudgetPeriod(rawValue: periodRawValue) ?? .monthly }
+        set { periodRawValue = newValue.rawValue }
+    }
 
     init(type: BudgetGoalType, period: BudgetPeriod, limitAmount: Decimal, tag: Tag? = nil) {
-        self.type = type
-        self.period = period
+        self.typeRawValue = type.rawValue
+        self.periodRawValue = period.rawValue
         self.limitAmount = limitAmount
         self.tag = tag
         self.createdAt = Date()

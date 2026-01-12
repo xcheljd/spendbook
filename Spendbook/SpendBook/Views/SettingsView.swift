@@ -8,25 +8,25 @@ struct SettingsView: View {
     @Query private var expenses: [Expense]
     @Query private var tags: [Tag]
     @Query private var goals: [BudgetGoal]
-    
+
     @State private var securityManager = SecurityManager.shared
     @Bindable private var currencyService = CurrencyService.shared
     @Bindable private var notificationService = NotificationService.shared
     @State private var showDeleteConfirmation = false
-    
+
     private let exportService = DataExportService()
-    
+
     var csvFile: CSVDocument {
         CSVDocument(initialText: exportService.generateCSV(from: expenses))
     }
-    
+
     var jsonFile: JSONDocument? {
         if let data = try? exportService.generateJSON(from: expenses) {
             return JSONDocument(initialData: data)
         }
         return nil
     }
-    
+
     var body: some View {
         NavigationStack {
             Form {
@@ -36,12 +36,12 @@ struct SettingsView: View {
                             Text(code).tag(code)
                         }
                     }
-                    
+
                     Text("All amounts will be formatted using \(currencyService.selectedCurrencyCode) and your current regional settings.")
                         .font(.caption)
-                        .foregroundColor(Color.Catppuccin.subtext0)
+                        .foregroundStyle(Color.Catppuccin.subtext0)
                 }
-                
+
                 Section("Reminders") {
                     Toggle("Daily Reminder", isOn: $notificationService.isEnabled)
                         .tint(Color.Catppuccin.blue)
@@ -54,49 +54,70 @@ struct SettingsView: View {
 
                         Text("Receive a weekly summary every Sunday at 10 AM showing if you're on track with your budget.")
                             .font(.caption)
-                            .foregroundColor(Color.Catppuccin.subtext0)
+                            .foregroundStyle(Color.Catppuccin.subtext0)
 
                         Button("Send Test Notification (5s)") {
                             notificationService.sendTestNotification()
                         }
-                        .foregroundColor(Color.Catppuccin.blue)
+                        .foregroundStyle(Color.Catppuccin.blue)
                     }
                 }
-                
+
                 Section("Manage") {
                     NavigationLink(destination: RecurringExpenseManagerView()) {
                         Label("Recurring Expenses", systemImage: "repeat")
                     }
-                    
-                    Button(action: addPresetTags) {
-                        Label("Add Preset Tags", systemImage: "tag.fill")
+
+                    NavigationLink(destination: TagManagementView()) {
+                        Label("Tags", systemImage: "tag.fill")
                     }
-                    .foregroundColor(Color.Catppuccin.blue)
                 }
-                
+
                 Section("Security") {
                     Toggle("Privacy Shield", isOn: $securityManager.isShieldEnabled)
                         .tint(Color.Catppuccin.blue)
-                    
+                        .animation(.easeInOut(duration: 0.2), value: securityManager.isShieldEnabled)
+
                     if securityManager.isShieldEnabled {
-                        Text("Secure your data with FaceID or Passcode. Locks after 30 seconds in background.")
+                        // Lock Timeout Picker
+                        Picker("Lock When Away", selection: $securityManager.lockTimeout) {
+                            ForEach(LockTimeout.allCases) { timeout in
+                                Text(timeout.displayName).tag(timeout)
+                            }
+                        }
+                        .tint(Color.Catppuccin.blue)
+
+                        // Authentication Method Picker
+                        Picker("Unlock Method", selection: Binding(
+                            get: { SecurityService.shared.authenticationMethod },
+                            set: { newValue in
+                                SecurityService.shared.authenticationMethod = newValue
+                            }
+                        )) {
+                            ForEach(AuthenticationMethod.allCases) { method in
+                                Text(method.displayName).tag(method)
+                            }
+                        }
+                        .tint(Color.Catppuccin.blue)
+
+                        Text(SecurityService.shared.authenticationMethod.description)
                             .font(.caption)
-                            .foregroundColor(Color.Catppuccin.subtext0)
+                            .foregroundStyle(Color.Catppuccin.subtext0)
                     }
                 }
-                
+
                 Section("Data Sovereignty") {
                     ShareLink(item: csvFile, preview: SharePreview("Spendbook Expenses.csv")) {
                         Label("Export as CSV", systemImage: "tablecells")
                     }
-                    
+
                     if let json = jsonFile {
                         ShareLink(item: json, preview: SharePreview("Spendbook Data.json")) {
                             Label("Export as JSON", systemImage: "curlybraces")
                         }
                     }
                 }
-                
+
                 Section("Danger Zone") {
                     Button(role: .destructive) {
                         showDeleteConfirmation = true
@@ -104,7 +125,7 @@ struct SettingsView: View {
                         Label("Erase All Content", systemImage: "trash")
                     }
                 }
-                
+
                 Section("About") {
                     HStack {
                         Text("Version")
@@ -137,7 +158,7 @@ struct SettingsView: View {
             }
         }
     }
-    
+
     private func deleteAllData() {
         do {
             // Delete all expenses
@@ -152,16 +173,22 @@ struct SettingsView: View {
             for goal in goals {
                 modelContext.delete(goal)
             }
-            
+
             try modelContext.save()
+
+            // Clear AppStorage streak data
+            UserDefaults.standard.removeObject(forKey: "bestLoggingStreak")
+            UserDefaults.standard.removeObject(forKey: "bestNoSpendStreak")
+            UserDefaults.standard.removeObject(forKey: "lastMilestoneCelebrated")
+
+            // Reset onboarding flag to show onboarding again
+            UserDefaults.standard.removeObject(forKey: "hasCompletedOnboarding")
+
+            // Dismiss settings view so user sees onboarding
+            dismiss()
         } catch {
             print("Failed to delete data: \(error)")
         }
-    }
-    
-    private func addPresetTags() {
-        let tagSeeder = TagSeeder(modelContext: modelContext)
-        tagSeeder.seedDefaultTagsWithoutDuplicates()
     }
 }
 
@@ -169,7 +196,7 @@ struct SettingsView: View {
 
 struct CSVDocument: Transferable {
     var initialText: String
-    
+
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(contentType: .commaSeparatedText) { document in
             let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("Spendbook_Export.csv")
@@ -184,7 +211,7 @@ struct CSVDocument: Transferable {
 
 struct JSONDocument: Transferable {
     var initialData: Data
-    
+
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(contentType: .json) { document in
             let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("Spendbook_Export.json")

@@ -4,10 +4,11 @@ import SwiftData
 @main
 struct SpendbookApp: App {
     @Environment(\.scenePhase) private var scenePhase
-    @State private var securityManager = SecurityManager.shared
+    private let securityManager = SecurityManager.shared
     @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
     @State private var showAddExpense = false
-    
+    @State private var hasAuthenticatedSinceLastActive: Bool = false
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Expense.self,
@@ -15,10 +16,8 @@ struct SpendbookApp: App {
             BudgetGoal.self,
         ])
 
-        // Use documents directory for storage
         let url = URL.documentsDirectory.appendingPathComponent("Spendbook.sqlite")
 
-        // Use local storage only for now (CloudKit requires proper entitlements)
         let modelConfiguration = ModelConfiguration(
             schema: schema,
             url: url,
@@ -28,7 +27,25 @@ struct SpendbookApp: App {
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            print("❌ ModelContainer creation failed: \(error)")
+            print("⚠️ Attempting to delete old database and retry...")
+
+            let fileManager = FileManager.default
+            let dbFiles = [
+                url,
+                url.deletingPathExtension().appendingPathExtension("sqlite-shm"),
+                url.deletingPathExtension().appendingPathExtension("sqlite-wal")
+            ]
+
+            for file in dbFiles {
+                try? fileManager.removeItem(at: file)
+            }
+
+            do {
+                return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            } catch {
+                fatalError("Could not create ModelContainer even after cleanup: \(error)")
+            }
         }
     }()
 
@@ -40,17 +57,18 @@ struct SpendbookApp: App {
                 } else if securityManager.isUnlocked {
                     HomeFeedView()
                 } else {
-                    AppLockView()
+                    AppLockView(hasAuthenticatedSinceLastActive: $hasAuthenticatedSinceLastActive)
                 }
             }
-            .onChange(of: scenePhase) { _, newPhase in
-                switch newPhase {
-                case .active:
-                    securityManager.handleAppBecomeActive()
-                case .background:
+            .onChange(of: scenePhase) { oldPhase, newPhase in
+                if newPhase == .active && oldPhase != .active && !hasAuthenticatedSinceLastActive {
+                    // Check if we should lock based on timeout
+                    if securityManager.shouldLock() {
+                        securityManager.isUnlocked = false
+                    }
+                } else if newPhase == .background {
                     securityManager.handleAppResignActive()
-                default:
-                    break
+                    hasAuthenticatedSinceLastActive = false
                 }
             }
             .onOpenURL { url in
@@ -68,7 +86,6 @@ struct SpendbookApp: App {
 
         switch url.host {
         case "add":
-            // Ensure app is unlocked before showing add screen
             if hasCompletedOnboarding && securityManager.isUnlocked {
                 showAddExpense = true
             }

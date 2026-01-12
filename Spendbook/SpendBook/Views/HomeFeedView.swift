@@ -104,11 +104,11 @@ struct HomeFeedView: View {
                                 Text("Total Spent (Month)")
                                     .font(.caption)
                                     .fontWeight(.bold)
-                                    .foregroundColor(theme.subtext0)
+                                    .foregroundStyle(theme.subtext0)
 
                                 Text(currencyService.format(totalSpentThisMonth))
                                     .font(.system(size: 28, weight: .bold, design: .rounded))
-                                    .foregroundColor(theme.text)
+                                    .foregroundStyle(theme.text)
                                     .contentTransition(.numericText())
                                     .animation(.spring, value: totalSpentThisMonth)
                             }
@@ -179,7 +179,7 @@ struct HomeFeedView: View {
                         Button(action: { showingAddEntry = true }) {
                             Image(systemName: "plus")
                                 .font(.title.bold())
-                                .foregroundColor(theme.base)
+                                .foregroundStyle(theme.base)
                                 .padding()
                                 .background(theme.blue)
                                 .clipShape(Circle())
@@ -197,17 +197,17 @@ struct HomeFeedView: View {
                     HStack(spacing: 16) {
                         Button(action: { showingSettings = true }) {
                             Image(systemName: "gearshape")
-                                .foregroundColor(theme.blue)
+                                .foregroundStyle(theme.blue)
                         }
 
                         Button(action: { showingInsights = true }) {
                             Image(systemName: "chart.bar.fill")
-                                .foregroundColor(theme.blue)
+                                .foregroundStyle(theme.blue)
                         }
 
                         Button(action: { showingGoals = true }) {
                             Image(systemName: "target")
-                                .foregroundColor(theme.blue)
+                                .foregroundStyle(theme.blue)
                         }
                     }
                 }
@@ -215,7 +215,7 @@ struct HomeFeedView: View {
                     HStack {
                         Button(action: { showingFilterSheet = true }) {
                             Image(systemName: filterSettings.hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
-                                .foregroundColor(theme.blue)
+                                .foregroundStyle(theme.blue)
                         }
                     }
                 }
@@ -284,25 +284,25 @@ struct TransactionRow: View {
                         .clipShape(Circle())
                 } else {
                     Image(systemName: "bag")
-                        .foregroundColor(theme.blue)
+                        .foregroundStyle(theme.blue)
                 }
             }
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(expense.tags?.first?.fullName ?? "Uncategorized")
                     .font(.headline)
-                    .foregroundColor(theme.text)
+                    .foregroundStyle(theme.text)
 
                 Text(expense.date.formatted(date: .abbreviated, time: .shortened))
                     .font(.caption)
-                    .foregroundColor(theme.subtext0)
+                    .foregroundStyle(theme.subtext0)
             }
 
             Spacer()
 
             Text(currencyService.format(expense.amount))
                 .font(.headline)
-                .foregroundColor(theme.text)
+                .foregroundStyle(theme.text)
         }
         .padding(.vertical, 4)
     }
@@ -357,18 +357,18 @@ struct SafeToSpendCard: View {
                 Text(title)
                     .font(.caption)
                     .fontWeight(.bold)
-                    .foregroundColor(Color.Catppuccin.base)
+                    .foregroundStyle(Color.Catppuccin.base)
 
                 Text(currencyService.format(abs(amount)))
                     .font(.system(size: 32, weight: .heavy, design: .rounded))
-                    .foregroundColor(Color.Catppuccin.base)
+                    .foregroundStyle(Color.Catppuccin.base)
                     .contentTransition(.numericText())
                     .animation(.spring, value: amount)
             }
             Spacer()
             Image(systemName: iconName)
                 .font(.system(size: 40))
-                .foregroundColor(Color.Catppuccin.base.opacity(0.5))
+                .foregroundStyle(Color.Catppuccin.base.opacity(0.5))
                 .symbolEffect(.bounce, value: isNegative)
         }
         .padding()
