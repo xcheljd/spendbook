@@ -21,8 +21,8 @@ Quick reference for implementing all suggestions for your Spendbook project.
 
 ### Phase 1: Create Groups
 - [ ] Create `App/` group
-- [ ] Create `Models/` group
-- [ ] Create `Views/` group with sub-groups:
+- [x] Create `Models/` group (Already exists)
+- [x] Create `Views/` group (Already exists - needs sub-grouping)
   - [ ] `Views/Home/`
   - [ ] `Views/AddEntry/`
   - [ ] `Views/Settings/`
@@ -32,20 +32,20 @@ Quick reference for implementing all suggestions for your Spendbook project.
   - [ ] `Views/Filters/`
   - [ ] `Views/EmptyStates/`
   - [ ] `Views/RecurringExpenses/`
-- [ ] Create `Services/` group
+- [x] Create `Services/` group (Already exists)
 - [ ] Create `Extensions/` group
 - [ ] Create `Utilities/` group
-- [ ] Create `Widgets/` group
-- [ ] Create `Tests/` group
+- [ ] Create `Widgets/` group (for main app shared code)
+- [ ] Create `Tests/` group (Verify structure)
 
 ### Phase 2: Move Files
 - [ ] Move `SpendbookApp.swift` and `Info.plist` to `App/`
-- [ ] Move all model files to `Models/`
+- [x] Move all model files to `Models/` (Already done)
 - [ ] Move view files to appropriate `Views/` sub-groups
-- [ ] Move service files to `Services/`
-- [ ] Move extension files to `Extensions/`
+- [x] Move service files to `Services/` (Already done)
+- [ ] Move extension files to `Extensions/` (e.g. `Color+Catppuccin.swift`)
 - [ ] Move utility files to `Utilities/`
-- [ ] Move widget files to `Widgets/`
+- [ ] Move widget-related files from `Assets` to `Widgets/`
 - [ ] Move test files to `Tests/`
 
 ### Phase 3: Verify

@@ -76,11 +76,11 @@ Move these files to **App/**:
 - `Info.plist`
 
 ### Models Group
-Move these files to **Models/**:
-- `Expense.swift` *(search for this file)*
-- `Tag.swift` *(search for this file)*
+*✅ Status: Already populated. Verify contents.*
+- `Expense.swift`
+- `Tag.swift`
 - `BudgetGoal.swift`
-- `RecurringExpense.swift` *(search for this file)*
+- `RecurringExpense.swift`
 - `FilterSettings.swift`
 
 ### Views/Home Group
@@ -138,7 +138,7 @@ Move these files to **Views/RecurringExpenses/**:
 - `RecurringDueCard.swift`
 
 ### Services Group
-Move these files to **Services/**:
+*✅ Status: Already populated. Verify contents.*
 - `ReceiptScannerService.swift`
 - `NotificationService.swift`
 - `SecurityService.swift`

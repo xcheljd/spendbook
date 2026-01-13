@@ -68,7 +68,6 @@
 				Models/Expense.swift,
 				Models/Tag.swift,
 				Services/CurrencyService.swift,
-				"Views/Color+Catppuccin.swift",
 			);
 			target = F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */;
 		};

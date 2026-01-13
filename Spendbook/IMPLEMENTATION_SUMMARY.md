@@ -5,7 +5,7 @@ All suggestions have been successfully implemented! Here's what was created:
 ## ✅ What's Been Completed
 
 ### 1. Info.plist Configuration ✅
-**File**: `Info.plist`
+**File**: `Spendbook/Info.plist`
 
 Added all required permission descriptions:
 - ✅ Camera access (`NSCameraUsageDescription`)
