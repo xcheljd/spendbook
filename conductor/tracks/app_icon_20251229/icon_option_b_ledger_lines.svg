@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="220" fill="#EFF1F5"/>
+
+  <!-- Page container -->
+  <rect x="192" y="208" width="640" height="608" rx="72" fill="#FFFFFF" stroke="#4C4F69" stroke-width="28"/>
+
+  <!-- Top header band -->
+  <rect x="220" y="236" width="584" height="88" rx="44" fill="#E6E9EF"/>
+
+  <!-- Vertical margin line (ledger feel) -->
+  <line x1="312" y1="236" x2="312" y2="788" stroke="#9CA0B0" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Ledger rows -->
+  <!-- Row 1 (normal) -->
+  <line x1="248" y1="376" x2="776" y2="376" stroke="#CCD0DA" stroke-width="16" stroke-linecap="round"/>
+  <!-- Row 2 (highlighted) -->
+  <rect x="232" y="424" width="560" height="72" rx="28" fill="#E6F4EA"/>
+  <line x1="248" y1="460" x2="664" y2="460" stroke="#40A02B" stroke-width="20" stroke-linecap="round"/>
+  <!-- Small checkmark at end of highlighted row -->
+  <path d="M696 452 L720 476 L760 436" stroke="#40A02B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Row 3 (normal) -->
+  <line x1="248" y1="528" x2="776" y2="528" stroke="#CCD0DA" stroke-width="16" stroke-linecap="round"/>
+  <!-- Row 4 (normal) -->
+  <line x1="248" y1="592" x2="776" y2="592" stroke="#CCD0DA" stroke-width="16" stroke-linecap="round"/>
+  <!-- Row 5 (normal) -->
+  <line x1="248" y1="656" x2="776" y2="656" stroke="#CCD0DA" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Bottom subtle shadow -->
+  <ellipse cx="512" cy="840" rx="260" ry="44" fill="#DCE0E8" opacity="0.7"/>
+</svg>

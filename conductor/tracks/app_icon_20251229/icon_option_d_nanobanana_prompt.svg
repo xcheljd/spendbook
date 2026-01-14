@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: light Catppuccin Latte-like tone -->
+  <rect width="1024" height="1024" rx="220" fill="#EFF1F5"/>
+
+  <!-- Very subtle inner halo to give focus without looking skeuomorphic -->
+  <circle cx="512" cy="512" r="320" fill="#E6E9EF" opacity="0.55"/>
+  <circle cx="512" cy="512" r="280" fill="#EFF1F5"/>
+
+  <!-- Minimalist angled checkbook: a single rotated rounded rectangle with inner lines -->
+  <g transform="translate(512 512) rotate(-12)">
+    <!-- Checkbook outer shape -->
+    <rect x="-240" y="-140" width="480" height="280" rx="64" fill="#EFF1F5" stroke="#4C4F69" stroke-width="28"/>
+
+    <!-- Spine hint: left strip using stroke only -->
+    <line x1="-168" y1="-118" x2="-168" y2="118" stroke="#9CA0B0" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Two subtle guide lines (ledger feel, but very minimal) -->
+    <line x1="-120" y1="-40" x2="192" y2="-40" stroke="#CCD0DA" stroke-width="16" stroke-linecap="round"/>
+    <line x1="-120" y1="16" x2="192" y2="16" stroke="#CCD0DA" stroke-width="16" stroke-linecap="round"/>
+
+    <!-- Primary accent stroke: a clean checkmark hugging the lower-right area -->
+    <path d="M-40 60 L40 132 L192 8" stroke="#40A02B" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Optional tiny pen stroke hint (pure line art, no detailed pen) -->
+  <path d="M320 720 L440 664" stroke="#179299" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+</svg>

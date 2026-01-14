@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="220" fill="#EFF1F5"/>
+
+  <!-- Inner panel -->
+  <rect x="176" y="192" width="672" height="640" rx="176" fill="#E6E9EF"/>
+
+  <!-- Checkbook body -->
+  <rect x="208" y="272" width="576" height="384" rx="88" stroke="#4C4F69" stroke-width="32" fill="#FFFFFF"/>
+
+  <!-- Checkbook spine -->
+  <rect x="232" y="296" width="72" height="336" rx="36" fill="#DCE0E8"/>
+  <line x1="264" y1="312" x2="264" y2="616" stroke="#4C4F69" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Simple amount line inside book -->
+  <line x1="328" y1="480" x2="744" y2="480" stroke="#9CA0B0" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- Lock group (bottom-right, overlapping book) -->
+  <!-- Lock body -->
+  <rect x="552" y="520" width="208" height="176" rx="44" fill="#FFFFFF" stroke="#4C4F69" stroke-width="28"/>
+  <!-- Lock shackle -->
+  <path d="M600 524 C600 468 640 432 656 432 H656 C688 432 720 460 720 524" stroke="#4C4F69" stroke-width="28" fill="none" stroke-linecap="round"/>
+  <!-- Keyhole -->
+  <circle cx="656" cy="600" r="22" fill="#40A02B"/>
+  <rect x="648" y="620" width="16" height="40" rx="8" fill="#40A02B"/>
+
+  <!-- Soft highlight on top of book -->
+  <rect x="224" y="288" width="544" height="72" rx="36" fill="url(#gradHighlightC)" opacity="0.4"/>
+
+  <defs>
+    <linearGradient id="gradHighlightC" x1="224" y1="288" x2="768" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#E6E9EF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
