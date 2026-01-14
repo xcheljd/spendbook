@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spendbook Launch Screen Preview</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2e; /* Catppuccin Mocha Base */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        .device-frame {
+            width: 375px;
+            height: 812px;
+            background-color: #1e1e2e;
+            border: 16px solid #11111b; /* Darker border for device frame */
+            border-radius: 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        
+        /* Simulating the SVG Icon centered */
+        .app-logo {
+            width: 180px; /* Approximate size of launch logo */
+            height: 180px;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.95; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .label {
+            position: absolute;
+            bottom: -50px;
+            color: #cdd6f4;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="device-frame">
+        <!-- Embedded SVG from icon_option_b_ledger_lines.svg (Symbol Only) -->
+        <svg class="app-logo" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;">
+            <g transform="translate(110, 104) scale(0.8)">
+                <!-- Main Ledger Paper Background (White) -->
+                <g transform="matrix(1,0,0,0.914474,0,43.789474)">
+                    <path d="M832,286.734L832,737.266C832,780.721 799.738,816 760,816L264,816C224.262,816 192,780.721 192,737.266L192,286.734C192,243.279 224.262,208 264,208L760,208C799.738,208 832,243.279 832,286.734Z" style="fill:white;stroke:rgb(76,79,105);stroke-width:28px;"/>
+                </g>
+                <!-- Top Grey Header Area -->
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M804,280C804,304.284 784.284,324 760,324L264,324C239.716,324 220,304.284 220,280C220,255.716 239.716,236 264,236L760,236C784.284,236 804,255.716 804,280Z" style="fill:rgb(230,233,239);"/>
+                </g>
+                <!-- Vertical Margin Line (Red/Pink) -->
+                <g transform="matrix(1,0,0,0.788043,0,120.021739)">
+                    <path d="M312,236L312,788" style="fill:none;fill-rule:nonzero;stroke:rgb(156,160,176);stroke-width:12px;stroke-linecap:round;"/>
+                </g>
+                <!-- Horizontal Lines (Grey) -->
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M248,376L776,376" style="fill:none;fill-rule:nonzero;stroke:rgb(204,208,218);stroke-width:16px;stroke-linecap:round;"/>
+                </g>
+                <!-- Highlighted Row Background (Greenish) -->
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M792,452L792,468C792,483.454 779.454,496 764,496L260,496C244.546,496 232,483.454 232,468L232,452C232,436.546 244.546,424 260,424L764,424C779.454,424 792,436.546 792,452Z" style="fill:rgb(230,244,234);"/>
+                </g>
+                <!-- Active Row Line (Green) -->
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M248,460L664,460" style="fill:none;fill-rule:nonzero;stroke:rgb(64,160,43);stroke-width:20px;stroke-linecap:round;"/>
+                </g>
+                <!-- Checkmark (Green) -->
+                <g transform="matrix(1,0,0,1,0,30)">
+                    <path d="M696,452L720,476L760,436" style="fill:none;fill-rule:nonzero;stroke:rgb(64,160,43);stroke-width:18px;stroke-linecap:round;stroke-linejoin:round;"/>
+                </g>
+                <!-- More Horizontal Lines (Grey) -->
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M248,528L776,528" style="fill:none;fill-rule:nonzero;stroke:rgb(204,208,218);stroke-width:16px;stroke-linecap:round;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M248,592L776,592" style="fill:none;fill-rule:nonzero;stroke:rgb(204,208,218);stroke-width:16px;stroke-linecap:round;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,26)">
+                    <path d="M248,656L776,656" style="fill:none;fill-rule:nonzero;stroke:rgb(204,208,218);stroke-width:16px;stroke-linecap:round;"/>
+                </g>
+            </g>
+        </svg>
+        <div class="label">Preview: Launch Screen on iPhone 16 Pro</div>
+    </div>
+</body>
+</html>
