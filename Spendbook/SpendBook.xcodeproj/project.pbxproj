@@ -57,13 +57,13 @@
 			membershipExceptions = (
 				Info.plist,
 				WIDGET_SETUP_README.md,
-				"WidgetExtension-Info.plist",
 			);
 			target = F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */;
 		};
 		F46EB02D2F0B9DBB00BD5428 /* Exceptions for "SpendBook" folder in "SpendBookWidgetExtensionExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Extensions/Color+Catppuccin.swift",
 				Models/BudgetGoal.swift,
 				Models/Expense.swift,
 				Models/Tag.swift,
@@ -71,11 +71,10 @@
 			);
 			target = F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */;
 		};
-		F4E88E602F0BA9DC00AC7143 /* Exceptions for "SpendBookWidgetExtension" folder in "SpendBook" target */ = {
+		F493B7EB2F1721D200A58C0A /* Exceptions for "SpendBook" folder in "SpendBook" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				WIDGET_SETUP_README.md,
-				"WidgetExtension-Info.plist",
+				App/Info.plist,
 			);
 			target = F4CAF0FE2F09C94700B8800E /* SpendBook */;
 		};
@@ -85,7 +84,6 @@
 		F46EB0142F0B97B100BD5428 /* SpendBookWidgetExtension */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F4E88E602F0BA9DC00AC7143 /* Exceptions for "SpendBookWidgetExtension" folder in "SpendBook" target */,
 				F46EB0212F0B97B300BD5428 /* Exceptions for "SpendBookWidgetExtension" folder in "SpendBookWidgetExtensionExtension" target */,
 			);
 			path = SpendBookWidgetExtension;
@@ -94,6 +92,7 @@
 		F4CAF1012F09C94700B8800E /* SpendBook */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				F493B7EB2F1721D200A58C0A /* Exceptions for "SpendBook" folder in "SpendBook" target */,
 				F46EB02D2F0B9DBB00BD5428 /* Exceptions for "SpendBook" folder in "SpendBookWidgetExtensionExtension" target */,
 			);
 			path = SpendBook;
@@ -348,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = SpendBookWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SpendBookWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -369,7 +368,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -382,7 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = SpendBookWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SpendBookWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -403,7 +402,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -537,7 +536,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GH9NK3RWVS;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpendBook/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SpendBook;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "SpendBook uses the camera to scan receipts and automatically extract expense amounts.";
@@ -578,7 +578,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GH9NK3RWVS;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpendBook/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SpendBook;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "SpendBook uses the camera to scan receipts and automatically extract expense amounts.";

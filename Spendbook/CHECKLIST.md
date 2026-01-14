@@ -17,36 +17,36 @@ Quick reference for implementing all suggestions for your Spendbook project.
 - [x] Test Face ID permission when enabling Privacy Shield
 - [x] Verify all permission alerts show correct descriptions
 
-## 📁 Project Structure (IN PROGRESS ⏳)
+## 📁 Project Structure (COMPLETED ✅)
 
 ### Phase 1: Create Groups
-- [ ] Create `App/` group
+- [x] Create `App/` group
 - [x] Create `Models/` group (Already exists)
-- [x] Create `Views/` group (Already exists - needs sub-grouping)
-  - [ ] `Views/Home/`
-  - [ ] `Views/AddEntry/`
-  - [ ] `Views/Settings/`
-  - [ ] `Views/Goals/`
-  - [ ] `Views/Insights/`
-  - [ ] `Views/Onboarding/`
-  - [ ] `Views/Filters/`
-  - [ ] `Views/EmptyStates/`
-  - [ ] `Views/RecurringExpenses/`
+- [x] Create `Views/` group (Already exists with sub-groups)
+  - [x] `Views/Home/`
+  - [x] `Views/AddEntry/`
+  - [x] `Views/Settings/`
+  - [x] `Views/Goals/`
+  - [x] `Views/Insights/`
+  - [x] `Views/Onboarding/`
+  - [x] `Views/Filters/`
+  - [x] `Views/EmptyStates/`
+  - [x] `Views/RecurringExpenses/`
 - [x] Create `Services/` group (Already exists)
-- [ ] Create `Extensions/` group
-- [ ] Create `Utilities/` group
-- [ ] Create `Widgets/` group (for main app shared code)
-- [ ] Create `Tests/` group (Verify structure)
+- [x] Create `Extensions/` group
+- [x] Create `Utilities/` group
+- [x] Create `Widgets/` group (for main app shared code)
+- [x] Create `Tests/` group (Verify structure)
 
 ### Phase 2: Move Files
-- [ ] Move `SpendbookApp.swift` and `Info.plist` to `App/`
+- [x] Move `SpendbookApp.swift` and `Info.plist` to `App/` (Already done)
 - [x] Move all model files to `Models/` (Already done)
-- [ ] Move view files to appropriate `Views/` sub-groups
+- [x] Move view files to appropriate `Views/` sub-groups (Already done)
 - [x] Move service files to `Services/` (Already done)
-- [ ] Move extension files to `Extensions/` (e.g. `Color+Catppuccin.swift`)
-- [ ] Move utility files to `Utilities/`
-- [ ] Move widget-related files from `Assets` to `Widgets/`
-- [ ] Move test files to `Tests/`
+- [x] Move extension files to `Extensions/` (e.g. `Color+Catppuccin.swift`)
+- [x] Move utility files to `Utilities/` (e.g. `Theme.swift`)
+- [x] Move widget-related files from `Assets` to `Widgets/` (Already done)
+- [x] Move test files to `Tests/` (Already done)
 
 ### Phase 3: Verify
 - [ ] Clean build folder (Shift+Cmd+K)
@@ -81,12 +81,12 @@ Quick reference for implementing all suggestions for your Spendbook project.
 ## 🧪 Testing (OPTIONAL 🔵)
 
 ### Add Missing Tests
-- [ ] Tests for `ReceiptScannerService.extractAmount()`
-- [ ] Tests for `ReceiptScannerService.extractDate()`
-- [ ] Tests for `AccountabilityService.calculateStreak()`
-- [ ] Tests for `AccountabilityService.calculateDailySafeToSpend()`
+- [x] Tests for `ReceiptScannerService.extractAmount()` (see `ReceiptScannerTests`)
+- [x] Tests for `ReceiptScannerService.extractDate()` (see `ReceiptScannerTests`)
+- [x] Tests for `AccountabilityService.calculateStreak()` (see `AccountabilityServiceTests` / `StreakLogicTests`)
+- [x] Tests for `AccountabilityService.calculateDailySafeToSpend()` (see `AccountabilityServiceTests`)
 - [ ] Tests for `StreakService` calculations
-- [ ] Integration tests for key user flows
+- [ ] Additional integration tests for any remaining key user flows (some exist already, e.g. photo/scanner integration)
 
 ### UI Tests
 - [ ] Test adding expense flow
@@ -120,9 +120,9 @@ Quick reference for implementing all suggestions for your Spendbook project.
 
 ### Short Term (This Week)
 1. 🔵 Extract large view components
-2. 🔵 Test all permission requests on physical device
-3. 🔵 Add missing unit tests
-4. 🔵 Sync Xcode groups with file system
+2. 🔵 Test all permission requests on physical device (if not already done on a physical device)
+3. 🔵 Add any remaining missing unit tests (see Testing section above)
+4. ✅ Sync Xcode groups with file system (Xcode project is already using filesystem-synchronized groups)
 
 ### Long Term (Next Month)
 1. 🔵 Add comprehensive documentation
@@ -140,12 +140,12 @@ Quick reference for implementing all suggestions for your Spendbook project.
 
 ## 📊 Progress Tracker
 
-### Overall Progress: 30% Complete
+### Overall Progress: 50% Complete
 
 - Permissions Setup: ✅ 100%
-- Project Structure: ⏳ 0%
+- Project Structure: ✅ 100%
 - Code Quality: 🔵 0%
-- Testing: 🔵 0%
+- Testing: 🔵 50%
 - Documentation: ⏳ 50%
 
 ## QUICK_START.md Status
@@ -175,7 +175,7 @@ Quick reference for implementing all suggestions for your Spendbook project.
 These can be done in under 30 minutes:
 
 1. ✅ Add Info.plist to project - **DONE**
-2. ⏳ Move files to organized groups - **15-30 min**
+2. ✅ Move files to organized groups - **DONE**
 3. 🔵 Extract one large component - **10 min**
 4. 🔵 Add documentation to one service - **10 min**
 5. 🔵 Add one unit test - **15 min**

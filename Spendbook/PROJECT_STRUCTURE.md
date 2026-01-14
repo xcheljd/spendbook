@@ -1,6 +1,6 @@
 # Spendbook Project Structure Guide
 
-This document outlines the recommended project structure for Spendbook. Organize your files according to this structure for better maintainability and scalability.
+This document outlines the current and recommended project structure for Spendbook. The existing project already follows this layout; continue organizing files according to this structure for better maintainability and scalability.
 
 ## 📁 Recommended Folder Structure
 

@@ -1,8 +1,9 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 @Observable
-class CurrencyService {
+final class CurrencyService {
     static let shared = CurrencyService()
     
     var selectedCurrencyCode: String {

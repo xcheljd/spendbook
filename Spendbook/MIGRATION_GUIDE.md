@@ -2,6 +2,8 @@
 
 This guide walks you through reorganizing your Spendbook project to follow best practices for iOS app structure.
 
+> **Status:** The current Spendbook Xcode project already matches this structure. Use this guide as a reference or when applying the same reorganization again.
+
 ## 🎯 Goals
 
 - Improve code discoverability and maintainability
