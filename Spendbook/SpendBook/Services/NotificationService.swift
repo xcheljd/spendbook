@@ -2,8 +2,9 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
+@MainActor
 @Observable
-class NotificationService {
+class NotificationService: NotificationServiceProtocol {
     static let shared = NotificationService()
     
     var isEnabled: Bool {

@@ -21,7 +21,7 @@ enum ReceiptScanError: LocalizedError {
 }
 
 @MainActor
-final class ReceiptScannerService: ObservableObject {
+final class ReceiptScannerService: ObservableObject, ReceiptScannerProtocol {
     @Published var isScanning = false
 
     private static let maxImageDimension: CGFloat = 2048

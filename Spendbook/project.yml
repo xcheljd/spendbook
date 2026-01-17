@@ -1,0 +1,65 @@
+name: SpendBook
+options:
+  bundleIdPrefix: XolotlLabs.SpendBook
+  deploymentTarget:
+    iOS: 18.0
+  xcodeVersion: 16.0
+  groupSortPosition: top
+
+targets:
+  SpendBook:
+    type: application
+    platform: iOS
+    sources:
+      - SpendBook
+    settings:
+      base:
+        INFOPLIST_FILE: SpendBook/App/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: XolotlLabs.SpendBook
+        DEVELOPMENT_TEAM: GH9NK3RWVS
+        ENABLE_PREVIEWS: YES
+        SWIFT_VERSION: 6.0
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        TARGETED_DEVICE_FAMILY: 1,2
+    dependencies:
+      - target: SpendBookWidgetExtension
+        embed: true
+
+  SpendBookWidgetExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - SpendBookWidgetExtension
+      - SpendBook/Extensions/Color+Catppuccin.swift
+      - SpendBook/Models
+      - SpendBook/Services/CurrencyService.swift
+    settings:
+      base:
+        INFOPLIST_FILE: SpendBookWidgetExtension/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: XolotlLabs.SpendBook.SpendBookWidgetExtension
+        DEVELOPMENT_TEAM: GH9NK3RWVS
+        SWIFT_VERSION: 6.0
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        TARGETED_DEVICE_FAMILY: 1,2
+
+  SpendBookTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests
+    dependencies:
+      - target: SpendBook
+    settings:
+      base:
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/SpendBook.app/SpendBook"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        SWIFT_VERSION: 6.0
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  SpendBook:
+    run:
+      environmentVariables:
+        _XCWidgetKind: spendBookWidget

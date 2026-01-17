@@ -9,7 +9,7 @@ enum CameraPermissionStatus {
 }
 
 struct ScannerView: UIViewControllerRepresentable {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) @MainActor private var dismiss
     let onCompletion: (UIImage) -> Void
     let onError: (Error) -> Void
 
@@ -47,7 +47,8 @@ struct ScannerView: UIViewControllerRepresentable {
         }
     }
 
-    class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
+    @MainActor
+    class Coordinator: NSObject, @preconcurrency VNDocumentCameraViewControllerDelegate {
         let parent: ScannerView
 
         init(parent: ScannerView) {

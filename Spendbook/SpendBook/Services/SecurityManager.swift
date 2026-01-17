@@ -58,6 +58,7 @@ enum AuthenticationMethod: Int, CaseIterable, Identifiable {
     }
 }
 
+@MainActor
 @Observable
 class SecurityManager {
     static let shared = SecurityManager()
