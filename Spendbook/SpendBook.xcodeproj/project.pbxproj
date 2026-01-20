@@ -7,414 +7,428 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F46EB0112F0B97B100BD5428 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46EB0102F0B97B000BD5428 /* WidgetKit.framework */; };
-		F46EB0132F0B97B100BD5428 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46EB0122F0B97B100BD5428 /* SwiftUI.framework */; };
-		F46EB0202F0B97B300BD5428 /* SpendBookWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F46EB00E2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13B6D10F4CC3C40AAED1B7F3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD68154F5FA278D15878F222 /* SettingsView.swift */; };
+		15AD473CE657D2ACD0944308 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4216F198958AB25E276EC /* ScannerView.swift */; };
+		16C7A27FE70A4A2CFEE284E2 /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E5055F063064EDD43203A /* HomeFeedView.swift */; };
+		181030BA3EA053ACBD5059CF /* Color+Catppuccin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A976EE99DAB6397659378A1 /* Color+Catppuccin.swift */; };
+		26DECF82078782BB7B9BC52E /* NotificationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D6522145A5BAC5C853A17F /* NotificationServiceProtocol.swift */; };
+		281E21CF23C27045D2EEAD1A /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA088CE2061B15EDB6AC02 /* EmptyStateView.swift */; };
+		286E683012D8CBDBD22CBEB5 /* FilterSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AD17E9B87BD7D02B1B7A2 /* FilterSheetView.swift */; };
+		34A4DAE03B9A8441AA9B2B76 /* SpendingCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4BF43CEB8B2C5E4386CEB /* SpendingCharts.swift */; };
+		35ADE92F86A0DCF7B5747AFB /* AccountabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4C5245DDB7E6ABD4D6041 /* AccountabilityService.swift */; };
+		36FEE6436CCA0730B63B47D5 /* TagSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40763DAFC580D08D40D130DA /* TagSeeder.swift */; };
+		374B9B12CD7478DB323CCF36 /* GoalsDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918450A1CF26EAB6F6A4BC0A /* GoalsDashboardView.swift */; };
+		40631B6654C28860AA1DE560 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB282FBA96818AE2E8D3E20 /* OnboardingView.swift */; };
+		45C0161B2EA869A42295F12B /* RecurringExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F56469DC9AA50203754AB /* RecurringExpense.swift */; };
+		48A100E83DA1CF71B1A30AED /* FilterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A89B8739656DE36CDE5D1B /* FilterSettings.swift */; };
+		4A1F7BADE03558781606BC17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D31280FD1CEA0C2E98165F /* Assets.xcassets */; };
+		52426BA40829DB2992C98A28 /* RecurringExpenseManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB74F6C57784EB1384A5114 /* RecurringExpenseManagerView.swift */; };
+		5547D2ACEDFC36810861365B /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBACA8FD652F8D926BD84A5 /* Expense.swift */; };
+		590C95B75435D3A4022F6882 /* RecurringDueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0050BE51FC91F24B21E5D22 /* RecurringDueCard.swift */; };
+		5D33B1C1398C54A7F8119A29 /* SmartTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978C3D2BB04D9396317006F /* SmartTagService.swift */; };
+		5E6E9B8FEB88E94930B35D18 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B4BACE53EAF89120806950 /* InsightsView.swift */; };
+		5FEAA52DA1AF05B68E8D0E05 /* AddEntryAmountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E6DADF99C1D426CEDBE9C /* AddEntryAmountScreen.swift */; };
+		64E3CCEB1088CF9FE7A33B21 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AFB96F744C9F10A449CCB7 /* NotificationService.swift */; };
+		681E7E9D195349C2D7A60D36 /* ReceiptScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F5F84C55EE4B7215C6A81B /* ReceiptScannerService.swift */; };
+		6A2E1DCB6EFBD6B6CD445D68 /* BudgetGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA40EFC1A6041C0CCD3736 /* BudgetGoal.swift */; };
+		6FCDA61A04ACB602E0F59153 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A481924D3AEAB7DFFE96123 /* SecurityService.swift */; };
+		788FA8FF8F10BAB8C6C81D64 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66B98889C0588B6CD84BD /* Tag.swift */; };
+		7DE544E7F311818367727B61 /* StreakSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8743C242EBEAE07C8FF67971 /* StreakSummaryCard.swift */; };
+		8787C1D27DF5DABF6D7A3E23 /* ActiveFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D462757935C66973237CE038 /* ActiveFiltersView.swift */; };
+		8BBA5E9D4369390F4EB00AC5 /* SafeToSpendCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994D08FF52F8FEC8774EEE1 /* SafeToSpendCard.swift */; };
+		9311DA1D7BEC232466451367 /* AddEntryContextScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72954CD17C1024442DF424 /* AddEntryContextScreen.swift */; };
+		95CA76335FB1D926F463037F /* PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD263C50F6664DA0B0F5E070 /* PhotoPickerService.swift */; };
+		9833F3F44CB7CF90C6412C31 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B46128F7998F47862A183 /* CurrencyService.swift */; };
+		9A28CA1C6D265734497F8910 /* ChartDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C00AEC10DC312875C823D /* ChartDataService.swift */; };
+		B5651A39A40E11D73A526B4E /* EmptyStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB41A2C19F1F61FAEE9970D4 /* EmptyStates.swift */; };
+		B633AADD4995C62229709318 /* SecurityServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54DCA93403646144360A9A6 /* SecurityServiceProtocol.swift */; };
+		B8A0DB6505CDB2A9376A599F /* DataExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9CE7F19102E80255FE845 /* DataExportService.swift */; };
+		C48943D882588EFC71FA2039 /* RecurringExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74BF52C800B3AB8730B86DF /* RecurringExpenseService.swift */; };
+		C7413120D127CA48E83006E9 /* ReceiptScannerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CAD44D0FFA7D705531FDF9 /* ReceiptScannerProtocol.swift */; };
+		D1533470946DF2E91127BFA5 /* AmountKeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004C4C4CF49B42CCAB9B621 /* AmountKeypadView.swift */; };
+		D222F564B1484DAB27CC665D /* TagManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427B178F6C9DF127F1B8FD7 /* TagManagementView.swift */; };
+		D64DD1731F548835CF4A5DBA /* SpendbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC097A845D3314B38A13EFD /* SpendbookApp.swift */; };
+		DBBC70D4D834EDCA498B9CAB /* StreakCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD74DB5A01FE29B0B611F180 /* StreakCalendarView.swift */; };
+		E19BB7FD20F9CD06A3B11F5D /* SecurityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F8B8E9BECE8B3B12BA74D /* SecurityManager.swift */; };
+		E4DB0B13DD01880FE9C74819 /* FilteredExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA80EEB43A251C2BA42E99C4 /* FilteredExpenseList.swift */; };
+		E79D4423E5B45E4C2B0AE2A9 /* ForecastingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7C5E35B9996836030BC40 /* ForecastingView.swift */; };
+		F21AC75416C84EA96D5E217C /* TagPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F3C9D708F2DD9CEC5BD4 /* TagPickerView.swift */; };
+		F25175B860FCD85F482065ED /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A15677B5D1E8605F1E14E7 /* TransactionRow.swift */; };
+		F3B08683278BEB0C3D9ACB51 /* StreakService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4BA26A8CCD793EE304287 /* StreakService.swift */; };
+		F9609C110EEE72ECABE2B2CE /* AppLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4F4E23463DF619F0DC5B8 /* AppLockView.swift */; };
+		FF91306E702A281A53F8FC91 /* SetGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F8F95778E956072533EBC3 /* SetGoalView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F46EB01E2F0B97B300BD5428 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4CAF0F72F09C94700B8800E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F46EB00D2F0B97B000BD5428;
-			remoteInfo = SpendBookWidgetExtensionExtension;
-		};
-		F4CAF1202F09D00000B8800E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4CAF0F72F09C94700B8800E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F4CAF0FE2F09C94700B8800E;
-			remoteInfo = SpendBook;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F46EB0252F0B97B300BD5428 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				F46EB0202F0B97B300BD5428 /* SpendBookWidgetExtensionExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		F46EB00E2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpendBookWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F46EB0102F0B97B000BD5428 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		F46EB0122F0B97B100BD5428 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		F4CAF0FF2F09C94700B8800E /* SpendBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4CAF1152F09D00000B8800E /* SpendBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpendBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01380228D3E61627AD648375 /* SpendBook.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SpendBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02FA40EFC1A6041C0CCD3736 /* BudgetGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetGoal.swift; sourceTree = "<group>"; };
+		07F8F95778E956072533EBC3 /* SetGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalView.swift; sourceTree = "<group>"; };
+		15D6522145A5BAC5C853A17F /* NotificationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceProtocol.swift; sourceTree = "<group>"; };
+		17D31280FD1CEA0C2E98165F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1978C3D2BB04D9396317006F /* SmartTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTagService.swift; sourceTree = "<group>"; };
+		1A481924D3AEAB7DFFE96123 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
+		1BBACA8FD652F8D926BD84A5 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		1C8F8B8E9BECE8B3B12BA74D /* SecurityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManager.swift; sourceTree = "<group>"; };
+		26D4C5245DDB7E6ABD4D6041 /* AccountabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountabilityService.swift; sourceTree = "<group>"; };
+		2A976EE99DAB6397659378A1 /* Color+Catppuccin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Catppuccin.swift"; sourceTree = "<group>"; };
+		3004C4C4CF49B42CCAB9B621 /* AmountKeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountKeypadView.swift; sourceTree = "<group>"; };
+		32E7C5E35B9996836030BC40 /* ForecastingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastingView.swift; sourceTree = "<group>"; };
+		36F5F84C55EE4B7215C6A81B /* ReceiptScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptScannerService.swift; sourceTree = "<group>"; };
+		37DA088CE2061B15EDB6AC02 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		40763DAFC580D08D40D130DA /* TagSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSeeder.swift; sourceTree = "<group>"; };
+		4B72954CD17C1024442DF424 /* AddEntryContextScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryContextScreen.swift; sourceTree = "<group>"; };
+		4C4E6DADF99C1D426CEDBE9C /* AddEntryAmountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryAmountScreen.swift; sourceTree = "<group>"; };
+		6994D08FF52F8FEC8774EEE1 /* SafeToSpendCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeToSpendCard.swift; sourceTree = "<group>"; };
+		6CB282FBA96818AE2E8D3E20 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		6CC4216F198958AB25E276EC /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		70C4F4E23463DF619F0DC5B8 /* AppLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockView.swift; sourceTree = "<group>"; };
+		72A15677B5D1E8605F1E14E7 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		7AB4BF43CEB8B2C5E4386CEB /* SpendingCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCharts.swift; sourceTree = "<group>"; };
+		8427B178F6C9DF127F1B8FD7 /* TagManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagementView.swift; sourceTree = "<group>"; };
+		8743C242EBEAE07C8FF67971 /* StreakSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakSummaryCard.swift; sourceTree = "<group>"; };
+		892F56469DC9AA50203754AB /* RecurringExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpense.swift; sourceTree = "<group>"; };
+		918450A1CF26EAB6F6A4BC0A /* GoalsDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDashboardView.swift; sourceTree = "<group>"; };
+		951E5055F063064EDD43203A /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
+		99B4BA26A8CCD793EE304287 /* StreakService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakService.swift; sourceTree = "<group>"; };
+		9B6B46128F7998F47862A183 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		A7A9CE7F19102E80255FE845 /* DataExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportService.swift; sourceTree = "<group>"; };
+		AA80EEB43A251C2BA42E99C4 /* FilteredExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredExpenseList.swift; sourceTree = "<group>"; };
+		ABE66B98889C0588B6CD84BD /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		B2FA806F0DEAA184B504F407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B3A89B8739656DE36CDE5D1B /* FilterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettings.swift; sourceTree = "<group>"; };
+		BFB74F6C57784EB1384A5114 /* RecurringExpenseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenseManagerView.swift; sourceTree = "<group>"; };
+		C8AFB96F744C9F10A449CCB7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		CD263C50F6664DA0B0F5E070 /* PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerService.swift; sourceTree = "<group>"; };
+		CD68154F5FA278D15878F222 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CD74DB5A01FE29B0B611F180 /* StreakCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCalendarView.swift; sourceTree = "<group>"; };
+		D462757935C66973237CE038 /* ActiveFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFiltersView.swift; sourceTree = "<group>"; };
+		D6E4F3C9D708F2DD9CEC5BD4 /* TagPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPickerView.swift; sourceTree = "<group>"; };
+		D74BF52C800B3AB8730B86DF /* RecurringExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenseService.swift; sourceTree = "<group>"; };
+		D8B4BACE53EAF89120806950 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		E27C00AEC10DC312875C823D /* ChartDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataService.swift; sourceTree = "<group>"; };
+		EB41A2C19F1F61FAEE9970D4 /* EmptyStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStates.swift; sourceTree = "<group>"; };
+		EDC097A845D3314B38A13EFD /* SpendbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendbookApp.swift; sourceTree = "<group>"; };
+		F0050BE51FC91F24B21E5D22 /* RecurringDueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringDueCard.swift; sourceTree = "<group>"; };
+		F0CAD44D0FFA7D705531FDF9 /* ReceiptScannerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptScannerProtocol.swift; sourceTree = "<group>"; };
+		F16AD17E9B87BD7D02B1B7A2 /* FilterSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetView.swift; sourceTree = "<group>"; };
+		F54DCA93403646144360A9A6 /* SecurityServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F46EB0212F0B97B300BD5428 /* Exceptions for "SpendBookWidgetExtension" folder in "SpendBookWidgetExtensionExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-				WIDGET_SETUP_README.md,
+/* Begin PBXGroup section */
+		1D94ACE753AA4ECA4F285FCF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA806F0DEAA184B504F407 /* Info.plist */,
+				EDC097A845D3314B38A13EFD /* SpendbookApp.swift */,
 			);
-			target = F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */;
-		};
-		F46EB02D2F0B9DBB00BD5428 /* Exceptions for "SpendBook" folder in "SpendBookWidgetExtensionExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Extensions/Color+Catppuccin.swift",
-				Models/BudgetGoal.swift,
-				Models/Expense.swift,
-				Models/Tag.swift,
-				Services/CurrencyService.swift,
-			);
-			target = F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */;
-		};
-		F493B7EB2F1721D200A58C0A /* Exceptions for "SpendBook" folder in "SpendBook" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				App/Info.plist,
-			);
-			target = F4CAF0FE2F09C94700B8800E /* SpendBook */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		F46EB0142F0B97B100BD5428 /* SpendBookWidgetExtension */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F46EB0212F0B97B300BD5428 /* Exceptions for "SpendBookWidgetExtension" folder in "SpendBookWidgetExtensionExtension" target */,
-			);
-			path = SpendBookWidgetExtension;
+			path = App;
 			sourceTree = "<group>";
 		};
-		F4CAF1012F09C94700B8800E /* SpendBook */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F493B7EB2F1721D200A58C0A /* Exceptions for "SpendBook" folder in "SpendBook" target */,
-				F46EB02D2F0B9DBB00BD5428 /* Exceptions for "SpendBook" folder in "SpendBookWidgetExtensionExtension" target */,
+		1E45BC1E1A75A33F7B239820 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				26D4C5245DDB7E6ABD4D6041 /* AccountabilityService.swift */,
+				E27C00AEC10DC312875C823D /* ChartDataService.swift */,
+				9B6B46128F7998F47862A183 /* CurrencyService.swift */,
+				A7A9CE7F19102E80255FE845 /* DataExportService.swift */,
+				C8AFB96F744C9F10A449CCB7 /* NotificationService.swift */,
+				15D6522145A5BAC5C853A17F /* NotificationServiceProtocol.swift */,
+				CD263C50F6664DA0B0F5E070 /* PhotoPickerService.swift */,
+				F0CAD44D0FFA7D705531FDF9 /* ReceiptScannerProtocol.swift */,
+				36F5F84C55EE4B7215C6A81B /* ReceiptScannerService.swift */,
+				D74BF52C800B3AB8730B86DF /* RecurringExpenseService.swift */,
+				1C8F8B8E9BECE8B3B12BA74D /* SecurityManager.swift */,
+				1A481924D3AEAB7DFFE96123 /* SecurityService.swift */,
+				F54DCA93403646144360A9A6 /* SecurityServiceProtocol.swift */,
+				1978C3D2BB04D9396317006F /* SmartTagService.swift */,
+				99B4BA26A8CCD793EE304287 /* StreakService.swift */,
+				40763DAFC580D08D40D130DA /* TagSeeder.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4481E52AC8B9D7C44DDE50D7 /* SpendBook */ = {
+			isa = PBXGroup;
+			children = (
+				17D31280FD1CEA0C2E98165F /* Assets.xcassets */,
+				1D94ACE753AA4ECA4F285FCF /* App */,
+				F51F651C787AEE5F4AF3B380 /* Extensions */,
+				6E7930B426D2C54A0B366484 /* Models */,
+				1E45BC1E1A75A33F7B239820 /* Services */,
+				DEB3743D34E9A8188630A022 /* Views */,
 			);
 			path = SpendBook;
 			sourceTree = "<group>";
 		};
-		F4CAF1162F09D00000B8800E /* Tests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Tests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		F46EB00B2F0B97B000BD5428 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F46EB0132F0B97B100BD5428 /* SwiftUI.framework in Frameworks */,
-				F46EB0112F0B97B100BD5428 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4CAF0FC2F09C94700B8800E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4CAF1172F09D00000B8800E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		F46EB00F2F0B97B000BD5428 /* Frameworks */ = {
+		46C35B5EDC31CAF888AC51DC /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				F46EB0102F0B97B000BD5428 /* WidgetKit.framework */,
-				F46EB0122F0B97B100BD5428 /* SwiftUI.framework */,
+				D462757935C66973237CE038 /* ActiveFiltersView.swift */,
+				F16AD17E9B87BD7D02B1B7A2 /* FilterSheetView.swift */,
 			);
-			name = Frameworks;
+			path = Filters;
 			sourceTree = "<group>";
 		};
-		F4CAF0F62F09C94600B8800E = {
+		501F29569D95EA60E0D2DD78 = {
 			isa = PBXGroup;
 			children = (
-				F4CAF1012F09C94700B8800E /* SpendBook */,
-				F4CAF1162F09D00000B8800E /* Tests */,
-				F46EB0142F0B97B100BD5428 /* SpendBookWidgetExtension */,
-				F46EB00F2F0B97B000BD5428 /* Frameworks */,
-				F4CAF1002F09C94700B8800E /* Products */,
+				4481E52AC8B9D7C44DDE50D7 /* SpendBook */,
+				D36F4B96112DFDB413B422B4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F4CAF1002F09C94700B8800E /* Products */ = {
+		6E7930B426D2C54A0B366484 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F4CAF0FF2F09C94700B8800E /* SpendBook.app */,
-				F4CAF1152F09D00000B8800E /* SpendBookTests.xctest */,
-				F46EB00E2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension.appex */,
+				02FA40EFC1A6041C0CCD3736 /* BudgetGoal.swift */,
+				1BBACA8FD652F8D926BD84A5 /* Expense.swift */,
+				B3A89B8739656DE36CDE5D1B /* FilterSettings.swift */,
+				892F56469DC9AA50203754AB /* RecurringExpense.swift */,
+				ABE66B98889C0588B6CD84BD /* Tag.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8AE5243E6BF8A2A2E6635BD3 /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				918450A1CF26EAB6F6A4BC0A /* GoalsDashboardView.swift */,
+				07F8F95778E956072533EBC3 /* SetGoalView.swift */,
+			);
+			path = Goals;
+			sourceTree = "<group>";
+		};
+		A45FCAD2430B697473E9A346 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				70C4F4E23463DF619F0DC5B8 /* AppLockView.swift */,
+				6CB282FBA96818AE2E8D3E20 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		BAB7E9F3B08B5A4AD520D6C2 /* EmptyStates */ = {
+			isa = PBXGroup;
+			children = (
+				EB41A2C19F1F61FAEE9970D4 /* EmptyStates.swift */,
+			);
+			path = EmptyStates;
+			sourceTree = "<group>";
+		};
+		C2E59FFC0855EA823C808366 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				37DA088CE2061B15EDB6AC02 /* EmptyStateView.swift */,
+				AA80EEB43A251C2BA42E99C4 /* FilteredExpenseList.swift */,
+				32E7C5E35B9996836030BC40 /* ForecastingView.swift */,
+				951E5055F063064EDD43203A /* HomeFeedView.swift */,
+				6994D08FF52F8FEC8774EEE1 /* SafeToSpendCard.swift */,
+				CD74DB5A01FE29B0B611F180 /* StreakCalendarView.swift */,
+				8743C242EBEAE07C8FF67971 /* StreakSummaryCard.swift */,
+				72A15677B5D1E8605F1E14E7 /* TransactionRow.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C79A930784492788F936AE9F /* RecurringExpenses */ = {
+			isa = PBXGroup;
+			children = (
+				F0050BE51FC91F24B21E5D22 /* RecurringDueCard.swift */,
+			);
+			path = RecurringExpenses;
+			sourceTree = "<group>";
+		};
+		D36F4B96112DFDB413B422B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01380228D3E61627AD648375 /* SpendBook.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DEB3743D34E9A8188630A022 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED7266511FA066323AB5E2B2 /* AddEntry */,
+				BAB7E9F3B08B5A4AD520D6C2 /* EmptyStates */,
+				46C35B5EDC31CAF888AC51DC /* Filters */,
+				8AE5243E6BF8A2A2E6635BD3 /* Goals */,
+				C2E59FFC0855EA823C808366 /* Home */,
+				FAFA9AD8581479D4A91A20C7 /* Insights */,
+				A45FCAD2430B697473E9A346 /* Onboarding */,
+				C79A930784492788F936AE9F /* RecurringExpenses */,
+				FF78A5ABADA55CA2836C78C0 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED7266511FA066323AB5E2B2 /* AddEntry */ = {
+			isa = PBXGroup;
+			children = (
+				4C4E6DADF99C1D426CEDBE9C /* AddEntryAmountScreen.swift */,
+				4B72954CD17C1024442DF424 /* AddEntryContextScreen.swift */,
+				3004C4C4CF49B42CCAB9B621 /* AmountKeypadView.swift */,
+				6CC4216F198958AB25E276EC /* ScannerView.swift */,
+			);
+			path = AddEntry;
+			sourceTree = "<group>";
+		};
+		F51F651C787AEE5F4AF3B380 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A976EE99DAB6397659378A1 /* Color+Catppuccin.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAFA9AD8581479D4A91A20C7 /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				D8B4BACE53EAF89120806950 /* InsightsView.swift */,
+				7AB4BF43CEB8B2C5E4386CEB /* SpendingCharts.swift */,
+			);
+			path = Insights;
+			sourceTree = "<group>";
+		};
+		FF78A5ABADA55CA2836C78C0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BFB74F6C57784EB1384A5114 /* RecurringExpenseManagerView.swift */,
+				CD68154F5FA278D15878F222 /* SettingsView.swift */,
+				8427B178F6C9DF127F1B8FD7 /* TagManagementView.swift */,
+				D6E4F3C9D708F2DD9CEC5BD4 /* TagPickerView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */ = {
+		D8DCEEFF336D23D567ECF0E9 /* SpendBook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F46EB0222F0B97B300BD5428 /* Build configuration list for PBXNativeTarget "SpendBookWidgetExtensionExtension" */;
+			buildConfigurationList = B538FF92F9AC85F9A7A97211 /* Build configuration list for PBXNativeTarget "SpendBook" */;
 			buildPhases = (
-				F46EB00A2F0B97B000BD5428 /* Sources */,
-				F46EB00B2F0B97B000BD5428 /* Frameworks */,
-				F46EB00C2F0B97B000BD5428 /* Resources */,
+				FE9DC9341D8835A34A4C1E8B /* Sources */,
+				AA7D1D22B6F5C23F815528A6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				F46EB0142F0B97B100BD5428 /* SpendBookWidgetExtension */,
-			);
-			name = SpendBookWidgetExtensionExtension;
-			packageProductDependencies = (
-			);
-			productName = SpendBookWidgetExtensionExtension;
-			productReference = F46EB00E2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		F4CAF0FE2F09C94700B8800E /* SpendBook */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F4CAF10A2F09C94B00B8800E /* Build configuration list for PBXNativeTarget "SpendBook" */;
-			buildPhases = (
-				F4CAF0FB2F09C94700B8800E /* Sources */,
-				F4CAF0FC2F09C94700B8800E /* Frameworks */,
-				F4CAF0FD2F09C94700B8800E /* Resources */,
-				F46EB0252F0B97B300BD5428 /* Embed Foundation Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F46EB01F2F0B97B300BD5428 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F4CAF1012F09C94700B8800E /* SpendBook */,
 			);
 			name = SpendBook;
 			packageProductDependencies = (
 			);
 			productName = SpendBook;
-			productReference = F4CAF0FF2F09C94700B8800E /* SpendBook.app */;
+			productReference = 01380228D3E61627AD648375 /* SpendBook.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F4CAF1142F09D00000B8800E /* SpendBookTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F4CAF11D2F09D00000B8800E /* Build configuration list for PBXNativeTarget "SpendBookTests" */;
-			buildPhases = (
-				F4CAF1182F09D00000B8800E /* Sources */,
-				F4CAF1172F09D00000B8800E /* Frameworks */,
-				F4CAF1192F09D00000B8800E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F4CAF1212F09D00000B8800E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F4CAF1162F09D00000B8800E /* Tests */,
-			);
-			name = SpendBookTests;
-			packageProductDependencies = (
-			);
-			productName = SpendBookTests;
-			productReference = F4CAF1152F09D00000B8800E /* SpendBookTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F4CAF0F72F09C94700B8800E /* Project object */ = {
+		1F9444B92B577C6C0521C8BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
-				TargetAttributes = {
-					F46EB00D2F0B97B000BD5428 = {
-						CreatedOnToolsVersion = 26.2;
-					};
-					F4CAF0FE2F09C94700B8800E = {
-						CreatedOnToolsVersion = 26.2;
-					};
-					F4CAF1142F09D00000B8800E = {
-						CreatedOnToolsVersion = 26.2;
-						TestTargetID = F4CAF0FE2F09C94700B8800E;
-					};
-				};
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 			};
-			buildConfigurationList = F4CAF0FA2F09C94700B8800E /* Build configuration list for PBXProject "SpendBook" */;
+			buildConfigurationList = 9FB12853DDA020F26A3818EC /* Build configuration list for PBXProject "SpendBook" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = F4CAF0F62F09C94600B8800E;
+			mainGroup = 501F29569D95EA60E0D2DD78;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = F4CAF1002F09C94700B8800E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4CAF0FE2F09C94700B8800E /* SpendBook */,
-				F4CAF1142F09D00000B8800E /* SpendBookTests */,
-				F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */,
+				D8DCEEFF336D23D567ECF0E9 /* SpendBook */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F46EB00C2F0B97B000BD5428 /* Resources */ = {
+		AA7D1D22B6F5C23F815528A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4CAF0FD2F09C94700B8800E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4CAF1192F09D00000B8800E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				4A1F7BADE03558781606BC17 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F46EB00A2F0B97B000BD5428 /* Sources */ = {
+		FE9DC9341D8835A34A4C1E8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4CAF0FB2F09C94700B8800E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F4CAF1182F09D00000B8800E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				35ADE92F86A0DCF7B5747AFB /* AccountabilityService.swift in Sources */,
+				8787C1D27DF5DABF6D7A3E23 /* ActiveFiltersView.swift in Sources */,
+				5FEAA52DA1AF05B68E8D0E05 /* AddEntryAmountScreen.swift in Sources */,
+				9311DA1D7BEC232466451367 /* AddEntryContextScreen.swift in Sources */,
+				D1533470946DF2E91127BFA5 /* AmountKeypadView.swift in Sources */,
+				F9609C110EEE72ECABE2B2CE /* AppLockView.swift in Sources */,
+				6A2E1DCB6EFBD6B6CD445D68 /* BudgetGoal.swift in Sources */,
+				9A28CA1C6D265734497F8910 /* ChartDataService.swift in Sources */,
+				181030BA3EA053ACBD5059CF /* Color+Catppuccin.swift in Sources */,
+				9833F3F44CB7CF90C6412C31 /* CurrencyService.swift in Sources */,
+				B8A0DB6505CDB2A9376A599F /* DataExportService.swift in Sources */,
+				281E21CF23C27045D2EEAD1A /* EmptyStateView.swift in Sources */,
+				B5651A39A40E11D73A526B4E /* EmptyStates.swift in Sources */,
+				5547D2ACEDFC36810861365B /* Expense.swift in Sources */,
+				48A100E83DA1CF71B1A30AED /* FilterSettings.swift in Sources */,
+				286E683012D8CBDBD22CBEB5 /* FilterSheetView.swift in Sources */,
+				E4DB0B13DD01880FE9C74819 /* FilteredExpenseList.swift in Sources */,
+				E79D4423E5B45E4C2B0AE2A9 /* ForecastingView.swift in Sources */,
+				374B9B12CD7478DB323CCF36 /* GoalsDashboardView.swift in Sources */,
+				16C7A27FE70A4A2CFEE284E2 /* HomeFeedView.swift in Sources */,
+				5E6E9B8FEB88E94930B35D18 /* InsightsView.swift in Sources */,
+				64E3CCEB1088CF9FE7A33B21 /* NotificationService.swift in Sources */,
+				26DECF82078782BB7B9BC52E /* NotificationServiceProtocol.swift in Sources */,
+				40631B6654C28860AA1DE560 /* OnboardingView.swift in Sources */,
+				95CA76335FB1D926F463037F /* PhotoPickerService.swift in Sources */,
+				C7413120D127CA48E83006E9 /* ReceiptScannerProtocol.swift in Sources */,
+				681E7E9D195349C2D7A60D36 /* ReceiptScannerService.swift in Sources */,
+				590C95B75435D3A4022F6882 /* RecurringDueCard.swift in Sources */,
+				45C0161B2EA869A42295F12B /* RecurringExpense.swift in Sources */,
+				52426BA40829DB2992C98A28 /* RecurringExpenseManagerView.swift in Sources */,
+				C48943D882588EFC71FA2039 /* RecurringExpenseService.swift in Sources */,
+				8BBA5E9D4369390F4EB00AC5 /* SafeToSpendCard.swift in Sources */,
+				15AD473CE657D2ACD0944308 /* ScannerView.swift in Sources */,
+				E19BB7FD20F9CD06A3B11F5D /* SecurityManager.swift in Sources */,
+				6FCDA61A04ACB602E0F59153 /* SecurityService.swift in Sources */,
+				B633AADD4995C62229709318 /* SecurityServiceProtocol.swift in Sources */,
+				FF91306E702A281A53F8FC91 /* SetGoalView.swift in Sources */,
+				13B6D10F4CC3C40AAED1B7F3 /* SettingsView.swift in Sources */,
+				5D33B1C1398C54A7F8119A29 /* SmartTagService.swift in Sources */,
+				D64DD1731F548835CF4A5DBA /* SpendbookApp.swift in Sources */,
+				34A4DAE03B9A8441AA9B2B76 /* SpendingCharts.swift in Sources */,
+				DBBC70D4D834EDCA498B9CAB /* StreakCalendarView.swift in Sources */,
+				F3B08683278BEB0C3D9ACB51 /* StreakService.swift in Sources */,
+				7DE544E7F311818367727B61 /* StreakSummaryCard.swift in Sources */,
+				788FA8FF8F10BAB8C6C81D64 /* Tag.swift in Sources */,
+				D222F564B1484DAB27CC665D /* TagManagementView.swift in Sources */,
+				F21AC75416C84EA96D5E217C /* TagPickerView.swift in Sources */,
+				36FEE6436CCA0730B63B47D5 /* TagSeeder.swift in Sources */,
+				F25175B860FCD85F482065ED /* TransactionRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F46EB01F2F0B97B300BD5428 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F46EB00D2F0B97B000BD5428 /* SpendBookWidgetExtensionExtension */;
-			targetProxy = F46EB01E2F0B97B300BD5428 /* PBXContainerItemProxy */;
-		};
-		F4CAF1212F09D00000B8800E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F4CAF0FE2F09C94700B8800E /* SpendBook */;
-			targetProxy = F4CAF1202F09D00000B8800E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		F46EB0232F0B97B300BD5428 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = SpendBookWidgetExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SpendBookWidgetExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBook.SpendBookWidgetExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F46EB0242F0B97B300BD5428 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = SpendBookWidgetExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SpendBookWidgetExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBook.SpendBookWidgetExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F4CAF1082F09C94B00B8800E /* Debug */ = {
+		1A48133CD497B3F8A4819F23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -444,14 +458,13 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -460,24 +473,61 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		F4CAF1092F09C94B00B8800E /* Release */ = {
+		38DB626B28C46A227D218280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SpendBook/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBook;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3D4248DECB98C254B7CAD018 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SpendBook/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBook;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7028566844EB7F891D41268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -507,8 +557,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -517,183 +566,38 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F4CAF10B2F09C94B00B8800E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = SpendBook/App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SpendBook;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_NSCameraUsageDescription = "SpendBook uses the camera to scan receipts and automatically extract expense amounts.";
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "Spendbook uses Face ID to securely lock and unlock your financial data.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Spendbook accesses your photo library to import receipt images for expense tracking.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F4CAF10C2F09C94B00B8800E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = SpendBook/App/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SpendBook;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_NSCameraUsageDescription = "SpendBook uses the camera to scan receipts and automatically extract expense amounts.";
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "Spendbook uses Face ID to securely lock and unlock your financial data.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Spendbook accesses your photo library to import receipt images for expense tracking.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F4CAF11B2F09D00000B8800E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBookTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpendBook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpendBook";
-			};
-			name = Debug;
-		};
-		F4CAF11C2F09D00000B8800E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GH9NK3RWVS;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = XolotlLabs.SpendBookTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpendBook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpendBook";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F46EB0222F0B97B300BD5428 /* Build configuration list for PBXNativeTarget "SpendBookWidgetExtensionExtension" */ = {
+		9FB12853DDA020F26A3818EC /* Build configuration list for PBXProject "SpendBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F46EB0232F0B97B300BD5428 /* Debug */,
-				F46EB0242F0B97B300BD5428 /* Release */,
+				1A48133CD497B3F8A4819F23 /* Debug */,
+				E7028566844EB7F891D41268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		F4CAF0FA2F09C94700B8800E /* Build configuration list for PBXProject "SpendBook" */ = {
+		B538FF92F9AC85F9A7A97211 /* Build configuration list for PBXNativeTarget "SpendBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F4CAF1082F09C94B00B8800E /* Debug */,
-				F4CAF1092F09C94B00B8800E /* Release */,
+				3D4248DECB98C254B7CAD018 /* Debug */,
+				38DB626B28C46A227D218280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F4CAF10A2F09C94B00B8800E /* Build configuration list for PBXNativeTarget "SpendBook" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F4CAF10B2F09C94B00B8800E /* Debug */,
-				F4CAF10C2F09C94B00B8800E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F4CAF11D2F09D00000B8800E /* Build configuration list for PBXNativeTarget "SpendBookTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F4CAF11B2F09D00000B8800E /* Debug */,
-				F4CAF11C2F09D00000B8800E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F4CAF0F72F09C94700B8800E /* Project object */;
+	rootObject = 1F9444B92B577C6C0521C8BA /* Project object */;
 }

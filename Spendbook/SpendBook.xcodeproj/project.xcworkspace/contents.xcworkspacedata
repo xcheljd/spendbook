@@ -4,34 +4,4 @@
    <FileRef
       location = "self:">
    </FileRef>
-   <FileRef
-      location = "group:Info.plist">
-   </FileRef>
-   <FileRef
-      location = "group:PROJECT_STRUCTURE.md">
-   </FileRef>
-   <FileRef
-      location = "group:PERMISSIONS_GUIDE.md">
-   </FileRef>
-   <FileRef
-      location = "group:IMPLEMENTATION_SUMMARY.md">
-   </FileRef>
-   <FileRef
-      location = "group:Info 2.plist">
-   </FileRef>
-   <FileRef
-      location = "group:PERMISSIONS_SETUP.md">
-   </FileRef>
-   <FileRef
-      location = "group:MIGRATION_GUIDE.md">
-   </FileRef>
-   <FileRef
-      location = "group:CHECKLIST.md">
-   </FileRef>
-   <FileRef
-      location = "group:IMPLEMENTATION_SUMMARY 2.md">
-   </FileRef>
-   <FileRef
-      location = "group:QUICK_START.md">
-   </FileRef>
 </Workspace>

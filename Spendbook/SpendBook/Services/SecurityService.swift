@@ -1,7 +1,8 @@
 import Foundation
 import LocalAuthentication
 
-class SecurityService {
+@MainActor
+class SecurityService: SecurityServiceProtocol {
     static let shared = SecurityService()
 
     private let context = LAContext()
