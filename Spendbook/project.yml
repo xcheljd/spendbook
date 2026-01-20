@@ -73,10 +73,16 @@ targets:
 
 schemes:
   SpendBook:
+    build:
+      targets:
+        SpendBook: all
+        SpendBookWidgetExtension: all
     run:
+      config: Debug
       environmentVariables:
         _XCWidgetKind: spendBookWidget
     test:
-      testTargets:
+      config: Debug
+      targets:
         - SpendBookTests
         - SpendBookUITests
