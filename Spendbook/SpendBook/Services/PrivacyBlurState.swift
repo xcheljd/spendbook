@@ -14,6 +14,7 @@ final class PrivacyBlurState {
         static let defaultEnabled = "privacyBlurDefaultEnabled"
         static let detailAutoReveal = "privacyBlurDetailAutoReveal"
         static let autoEnableOnBackground = "privacyBlurAutoEnableOnBackground"
+        static let showStreakCard = "showStreakCard"
     }
 
     // MARK: - Stored Properties (tracked by @Observable)
@@ -38,6 +39,11 @@ final class PrivacyBlurState {
         didSet { UserDefaults.standard.set(autoEnableOnBackground, forKey: Keys.autoEnableOnBackground) }
     }
 
+    /// Whether to show streak card in header.
+    var showStreakCard: Bool {
+        didSet { UserDefaults.standard.set(showStreakCard, forKey: Keys.showStreakCard) }
+    }
+
     // MARK: - Initialization
 
     private init() {
@@ -46,7 +52,8 @@ final class PrivacyBlurState {
             Keys.isEnabled: false,
             Keys.defaultEnabled: false,
             Keys.detailAutoReveal: true,
-            Keys.autoEnableOnBackground: false
+            Keys.autoEnableOnBackground: false,
+            Keys.showStreakCard: true
         ])
 
         // Load persisted values into stored properties
@@ -54,6 +61,7 @@ final class PrivacyBlurState {
         self.defaultEnabled = UserDefaults.standard.bool(forKey: Keys.defaultEnabled)
         self.detailAutoReveal = UserDefaults.standard.bool(forKey: Keys.detailAutoReveal)
         self.autoEnableOnBackground = UserDefaults.standard.bool(forKey: Keys.autoEnableOnBackground)
+        self.showStreakCard = UserDefaults.standard.bool(forKey: Keys.showStreakCard)
 
         // Apply default on first launch
         if UserDefaults.standard.object(forKey: Keys.isEnabled) == nil {
@@ -68,6 +76,7 @@ final class PrivacyBlurState {
         isEnabled = defaultEnabled
         detailAutoReveal = true
         autoEnableOnBackground = false
+        showStreakCard = true
     }
 
     /// Toggles the current blur state.

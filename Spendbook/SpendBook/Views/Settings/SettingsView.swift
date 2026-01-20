@@ -107,6 +107,11 @@ struct SettingsView: View {
                     }
                 }
 
+                Section("Display") {
+                    Toggle("Show streak card", isOn: $privacyBlurState.showStreakCard)
+                        .tint(Color.Catppuccin.blue)
+                }
+
                 Section {
                     Toggle("Enable blur on launch", isOn: $privacyBlurState.defaultEnabled)
                         .tint(Color.Catppuccin.blue)

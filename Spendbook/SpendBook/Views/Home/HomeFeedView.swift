@@ -100,36 +100,71 @@ struct HomeFeedView: View {
                 VStack(spacing: 0) {
                     // Enhanced Header Summary
                     // Always show summary based on global state, regardless of filters
-                    VStack(spacing: 20) {
-                        HStack(alignment: .top) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Total Spent (Month)")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(theme.subtext0)
+                    VStack(spacing: 16) {
+                        HStack(spacing: 12) {
+                            Button(action: { showingInsights = true }) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Total Spent (Month)")
+                                        .font(.caption)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(theme.subtext0)
 
-                                BlurredAmountView(amount: totalSpentThisMonth, isBlurred: privacyBlurState.isEnabled)
-                                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                                    .foregroundStyle(theme.text)
-                                    .contentTransition(.numericText())
-                                    .animation(.spring, value: totalSpentThisMonth)
+                                    BlurredAmountView(amount: totalSpentThisMonth, isBlurred: privacyBlurState.isEnabled)
+                                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                                        .foregroundStyle(theme.text)
+                                        .contentTransition(.numericText())
+                                        .animation(.spring, value: totalSpentThisMonth)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .overlay(alignment: .trailing) {
+                                    Image(systemName: "chevron.right")
+                                        .foregroundStyle(theme.subtext0.opacity(0.3))
+                                        .font(.caption)
+                                }
+                                .contentShape(Rectangle())
+                                .padding()
+                                .background(theme.mantle)
+                                .cornerRadius(16)
                             }
+                            .buttonStyle(.plain)
 
-                            Spacer()
+                            Button(action: { showingGoals = true }) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Safe to Spend Today")
+                                        .font(.caption)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color.Catppuccin.base)
 
+                                    BlurredAmountView(amount: abs(safeToSpend), isBlurred: privacyBlurState.isEnabled)
+                                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                                        .foregroundStyle(Color.Catppuccin.base)
+                                        .contentTransition(.numericText())
+                                        .animation(.spring, value: safeToSpend)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .overlay(alignment: .trailing) {
+                                    Image(systemName: "chevron.right")
+                                        .foregroundStyle(Color.Catppuccin.base.opacity(0.3))
+                                        .font(.caption)
+                                }
+                                .contentShape(Rectangle())
+                                .padding()
+                                .background(safeToSpend >= 0 ? Color.Catppuccin.blue : Color.Catppuccin.red)
+                                .cornerRadius(16)
+                                .shadow(color: (safeToSpend >= 0 ? Color.Catppuccin.blue : Color.Catppuccin.red).opacity(0.2), radius: 8, x: 0, y: 4)
+                            }
+                            .buttonStyle(.plain)
+                        }
+
+                        if privacyBlurState.showStreakCard {
                             StreakSummaryCard(
                                 loggingStreak: currentStreak,
                                 noSpendStreak: noSpendStreak,
                                 bestLogging: streakService.bestLoggingStreak,
                                 bestNoSpend: streakService.bestNoSpendStreak
                             )
-                            .frame(width: 180)
                         }
 
-                        // Safe-to-Spend Card
-                        SafeToSpendCard(amount: safeToSpend, isBlurred: privacyBlurState.isEnabled)
-
-                        // Forecasting View
                         if currentGoal > 0 {
                             ForecastingView(
                                 projectedSpend: projectedSpend,
@@ -143,8 +178,34 @@ struct HomeFeedView: View {
                     .padding(.top, 10)
                     .padding(.bottom, 24)
                     .background(theme.mantle)
-                    .cornerRadius(32, corners: [.bottomLeft, .bottomRight])
-                    
+                    .cornerRadius(32)
+
+                    HStack(spacing: 12) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundStyle(theme.subtext0)
+                                .font(.body)
+
+                            TextField("Search transactions...", text: $searchText)
+                                .textFieldStyle(.plain)
+                                .foregroundStyle(theme.text)
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 10)
+                        .background(theme.mantle)
+                        .cornerRadius(12)
+
+                        Button(action: { showingFilterSheet = true }) {
+                            Image(systemName: filterSettings.hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
+                                .foregroundStyle(filterSettings.hasActiveFilters ? theme.blue : theme.subtext0)
+                                .font(.title2)
+                        }
+                        .frame(width: 44, height: 44)
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 12)
+                    .background(theme.base)
+
                     // Recurring Items
                     if !dueRecurringExpenses.isEmpty && searchText.isEmpty && !filterSettings.hasActiveFilters {
                         VStack(spacing: 12) {
@@ -194,35 +255,15 @@ struct HomeFeedView: View {
             }
             .navigationTitle("Spendbook")
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    HStack(spacing: 16) {
-                        Button(action: { showingSettings = true }) {
-                            Image(systemName: "gearshape")
-                                .foregroundStyle(theme.blue)
-                        }
-
-                        Button(action: { showingInsights = true }) {
-                            Image(systemName: "chart.bar.fill")
-                                .foregroundStyle(theme.blue)
-                        }
-
-                        Button(action: { showingGoals = true }) {
-                            Image(systemName: "target")
-                                .foregroundStyle(theme.blue)
-                        }
+                    Button(action: { showingSettings = true }) {
+                        Image(systemName: "gearshape")
+                            .foregroundStyle(theme.blue)
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack(spacing: 8) {
-                        Button(action: { showingFilterSheet = true }) {
-                            Image(systemName: filterSettings.hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
-                                .foregroundStyle(theme.blue)
-                        }
-
-                        PrivacyBlurToggle()
-                    }
+                    PrivacyBlurToggle()
                 }
             }
             .sheet(isPresented: $showingAddEntry) {
