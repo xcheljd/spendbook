@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,7 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01380228D3E61627AD648375 /* SpendBook.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SpendBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01380228D3E61627AD648375 /* SpendBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02FA40EFC1A6041C0CCD3736 /* BudgetGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetGoal.swift; sourceTree = "<group>"; };
 		07F8F95778E956072533EBC3 /* SetGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalView.swift; sourceTree = "<group>"; };
 		15D6522145A5BAC5C853A17F /* NotificationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceProtocol.swift; sourceTree = "<group>"; };
@@ -83,8 +83,10 @@
 		6CC4216F198958AB25E276EC /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		70C4F4E23463DF619F0DC5B8 /* AppLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLockView.swift; sourceTree = "<group>"; };
 		72A15677B5D1E8605F1E14E7 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		75D7CAAE20D447EB8672BC93 /* AddExpenseFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseFlowUITests.swift; sourceTree = "<group>"; };
 		7AB4BF43CEB8B2C5E4386CEB /* SpendingCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCharts.swift; sourceTree = "<group>"; };
 		8427B178F6C9DF127F1B8FD7 /* TagManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagementView.swift; sourceTree = "<group>"; };
+		848E4B21DA2D4796B12BB993 /* ReceiptScannerFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptScannerFlowUITests.swift; sourceTree = "<group>"; };
 		8743C242EBEAE07C8FF67971 /* StreakSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakSummaryCard.swift; sourceTree = "<group>"; };
 		892F56469DC9AA50203754AB /* RecurringExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpense.swift; sourceTree = "<group>"; };
 		918450A1CF26EAB6F6A4BC0A /* GoalsDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsDashboardView.swift; sourceTree = "<group>"; };
@@ -94,9 +96,13 @@
 		A7A9CE7F19102E80255FE845 /* DataExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportService.swift; sourceTree = "<group>"; };
 		AA80EEB43A251C2BA42E99C4 /* FilteredExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredExpenseList.swift; sourceTree = "<group>"; };
 		ABE66B98889C0588B6CD84BD /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		AF80D83C31D14A82B2EEF7C8 /* FilterFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFlowUITests.swift; sourceTree = "<group>"; };
 		B2FA806F0DEAA184B504F407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B3A89B8739656DE36CDE5D1B /* FilterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettings.swift; sourceTree = "<group>"; };
+		B80B6E5D06CA49E5BE78FB7F /* DataExportFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportFlowUITests.swift; sourceTree = "<group>"; };
 		BFB74F6C57784EB1384A5114 /* RecurringExpenseManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenseManagerView.swift; sourceTree = "<group>"; };
+		BFFEF69583E0466C87BA2E33 /* SpendBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendBookUITests.swift; sourceTree = "<group>"; };
+		C69B4FEC24AD430EB0E046E4 /* GoalsFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsFlowUITests.swift; sourceTree = "<group>"; };
 		C8AFB96F744C9F10A449CCB7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		CD263C50F6664DA0B0F5E070 /* PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerService.swift; sourceTree = "<group>"; };
 		CD68154F5FA278D15878F222 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		D74BF52C800B3AB8730B86DF /* RecurringExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringExpenseService.swift; sourceTree = "<group>"; };
 		D8B4BACE53EAF89120806950 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		E27C00AEC10DC312875C823D /* ChartDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataService.swift; sourceTree = "<group>"; };
+		E7C3D4A91F2B48E6A0D5C8B2 /* SpendBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SpendBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB41A2C19F1F61FAEE9970D4 /* EmptyStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStates.swift; sourceTree = "<group>"; };
 		EDC097A845D3314B38A13EFD /* SpendbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendbookApp.swift; sourceTree = "<group>"; };
 		F0050BE51FC91F24B21E5D22 /* RecurringDueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringDueCard.swift; sourceTree = "<group>"; };
@@ -173,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				4481E52AC8B9D7C44DDE50D7 /* SpendBook */,
+				84443E11B2D24367B6E653DF /* UITests */,
 				D36F4B96112DFDB413B422B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,6 +195,19 @@
 				ABE66B98889C0588B6CD84BD /* Tag.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84443E11B2D24367B6E653DF /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF69583E0466C87BA2E33 /* SpendBookUITests.swift */,
+				75D7CAAE20D447EB8672BC93 /* AddExpenseFlowUITests.swift */,
+				848E4B21DA2D4796B12BB993 /* ReceiptScannerFlowUITests.swift */,
+				C69B4FEC24AD430EB0E046E4 /* GoalsFlowUITests.swift */,
+				AF80D83C31D14A82B2EEF7C8 /* FilterFlowUITests.swift */,
+				B80B6E5D06CA49E5BE78FB7F /* DataExportFlowUITests.swift */,
+			);
+			path = UITests;
 			sourceTree = "<group>";
 		};
 		8AE5243E6BF8A2A2E6635BD3 /* Goals */ = {
@@ -242,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				01380228D3E61627AD648375 /* SpendBook.app */,
+				E7C3D4A91F2B48E6A0D5C8B2 /* SpendBookUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -329,7 +351,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 2620;
 			};
 			buildConfigurationList = 9FB12853DDA020F26A3818EC /* Build configuration list for PBXProject "SpendBook" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -341,7 +363,6 @@
 			);
 			mainGroup = 501F29569D95EA60E0D2DD78;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -458,6 +479,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -478,6 +500,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -557,6 +580,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -570,6 +594,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
