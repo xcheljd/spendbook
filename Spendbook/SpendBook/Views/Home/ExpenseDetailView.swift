@@ -8,8 +8,9 @@ struct ExpenseDetailView: View {
 
     let expense: Expense
 
-    @State private var privacyBlurState = PrivacyBlurState.shared
     @State private var localBlurEnabled: Bool = false
+
+    private var privacyBlurState: PrivacyBlurState { PrivacyBlurState.shared }
 
     private var theme: Theme { Theme(colorScheme) }
 
@@ -134,8 +135,8 @@ struct ExpenseDetailView: View {
             }
         }
         .onAppear {
-            // Initialize local blur state based on setting
-            localBlurEnabled = !privacyBlurState.detailAutoReveal
+            // Only blur in detail view if global blur is on AND auto-reveal is off
+            localBlurEnabled = privacyBlurState.isEnabled && !privacyBlurState.detailAutoReveal
         }
     }
 }

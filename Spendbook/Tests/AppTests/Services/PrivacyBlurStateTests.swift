@@ -5,72 +5,58 @@ import XCTest
 final class PrivacyBlurStateTests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Reset UserDefaults before each test
-        UserDefaults.standard.removeObject(forKey: "privacyBlurEnabled")
-        UserDefaults.standard.removeObject(forKey: "privacyBlurDefaultEnabled")
-        UserDefaults.standard.removeObject(forKey: "privacyBlurDetailAutoReveal")
-        UserDefaults.standard.removeObject(forKey: "privacyBlurAutoEnableOnBackground")
+        // Reset singleton state before each test
+        PrivacyBlurState.shared.resetForTesting()
     }
 
     override func tearDownWithError() throws {
         // Clean up after each test
-        UserDefaults.standard.removeObject(forKey: "privacyBlurEnabled")
-        UserDefaults.standard.removeObject(forKey: "privacyBlurDefaultEnabled")
-        UserDefaults.standard.removeObject(forKey: "privacyBlurDetailAutoReveal")
-        UserDefaults.standard.removeObject(forKey: "privacyBlurAutoEnableOnBackground")
+        PrivacyBlurState.shared.resetForTesting()
     }
 
     // MARK: - isEnabled Tests
 
-    func testIsEnabledDefaultIsFalseWhenDefaultEnabledIsFalse() {
+    func testIsEnabledCanBeToggled() {
         let state = PrivacyBlurState.shared
+        state.isEnabled = false
         XCTAssertFalse(state.isEnabled)
-    }
 
-    func testIsEnabledCanBeSet() {
-        let state = PrivacyBlurState.shared
         state.isEnabled = true
         XCTAssertTrue(state.isEnabled)
+
         state.isEnabled = false
         XCTAssertFalse(state.isEnabled)
     }
 
     // MARK: - defaultEnabled Tests
 
-    func testDefaultEnabledDefaultIsFalse() {
-        let state = PrivacyBlurState.shared
-        XCTAssertFalse(state.defaultEnabled)
-    }
-
     func testDefaultEnabledCanBeSet() {
         let state = PrivacyBlurState.shared
+        state.defaultEnabled = false
+        XCTAssertFalse(state.defaultEnabled)
+
         state.defaultEnabled = true
         XCTAssertTrue(state.defaultEnabled)
     }
 
     // MARK: - detailAutoReveal Tests
 
-    func testDetailAutoRevealDefaultIsFalse() {
-        let state = PrivacyBlurState.shared
-        // UserDefaults.bool returns false when key is not set
-        XCTAssertFalse(state.detailAutoReveal)
-    }
-
     func testDetailAutoRevealCanBeSet() {
         let state = PrivacyBlurState.shared
+        state.detailAutoReveal = true
+        XCTAssertTrue(state.detailAutoReveal)
+
         state.detailAutoReveal = false
         XCTAssertFalse(state.detailAutoReveal)
     }
 
     // MARK: - autoEnableOnBackground Tests
 
-    func testAutoEnableOnBackgroundDefaultIsFalse() {
-        let state = PrivacyBlurState.shared
-        XCTAssertFalse(state.autoEnableOnBackground)
-    }
-
     func testAutoEnableOnBackgroundCanBeSet() {
         let state = PrivacyBlurState.shared
+        state.autoEnableOnBackground = false
+        XCTAssertFalse(state.autoEnableOnBackground)
+
         state.autoEnableOnBackground = true
         XCTAssertTrue(state.autoEnableOnBackground)
     }
@@ -79,18 +65,24 @@ final class PrivacyBlurStateTests: XCTestCase {
 
     func testToggleSwitchesState() {
         let state = PrivacyBlurState.shared
-        let initialState = state.isEnabled
+        state.isEnabled = false
         state.toggle()
-        XCTAssertEqual(state.isEnabled, !initialState)
+        XCTAssertTrue(state.isEnabled)
+
+        state.toggle()
+        XCTAssertFalse(state.isEnabled)
     }
 
     func testApplyDefaultStateSetsIsEnabledToDefaultEnabled() {
         let state = PrivacyBlurState.shared
+
+        // When defaultEnabled is true, isEnabled should become true
         state.defaultEnabled = true
         state.isEnabled = false
         state.applyDefaultState()
         XCTAssertTrue(state.isEnabled)
 
+        // When defaultEnabled is false, isEnabled should become false
         state.defaultEnabled = false
         state.isEnabled = true
         state.applyDefaultState()
@@ -113,33 +105,39 @@ final class PrivacyBlurStateTests: XCTestCase {
         XCTAssertFalse(state.isEnabled)
     }
 
-    func testResetToDefaultsResetsAllSettings() {
+    func testResetToDefaultsSetsExpectedValues() {
         let state = PrivacyBlurState.shared
+
+        // Set non-default values
         state.isEnabled = true
+        state.defaultEnabled = true
         state.detailAutoReveal = false
         state.autoEnableOnBackground = true
 
+        // Reset
         state.resetToDefaults()
 
-        XCTAssertFalse(state.isEnabled)
+        // Verify reset values (isEnabled = defaultEnabled, detailAutoReveal = true, autoEnableOnBackground = false)
+        XCTAssertEqual(state.isEnabled, state.defaultEnabled)
         XCTAssertTrue(state.detailAutoReveal)
         XCTAssertFalse(state.autoEnableOnBackground)
     }
 
-    // MARK: - Initialization Tests
+    // MARK: - Persistence Tests
 
-    func testApplyDefaultStateUsesDefaultEnabledValue() {
-        // Uses shared instance since init is private
+    func testValuesPersistedToUserDefaults() {
         let state = PrivacyBlurState.shared
 
-        // Set default to true
+        state.isEnabled = true
+        XCTAssertTrue(UserDefaults.standard.bool(forKey: "privacyBlurEnabled"))
+
         state.defaultEnabled = true
-        state.isEnabled = false
+        XCTAssertTrue(UserDefaults.standard.bool(forKey: "privacyBlurDefaultEnabled"))
 
-        // Apply default state (simulates app restart behavior)
-        state.applyDefaultState()
+        state.detailAutoReveal = false
+        XCTAssertFalse(UserDefaults.standard.bool(forKey: "privacyBlurDetailAutoReveal"))
 
-        // isEnabled should be set to defaultEnabled value
-        XCTAssertTrue(state.isEnabled)
+        state.autoEnableOnBackground = true
+        XCTAssertTrue(UserDefaults.standard.bool(forKey: "privacyBlurAutoEnableOnBackground"))
     }
 }

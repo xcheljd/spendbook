@@ -7,8 +7,9 @@ struct FilteredExpenseList: View {
 
     @State private var expenseToDelete: Expense?
     @State private var showDeleteConfirmation = false
-    @State private var privacyBlurState = PrivacyBlurState.shared
     @State private var selectedExpense: Expense?
+
+    private var privacyBlurState: PrivacyBlurState { PrivacyBlurState.shared }
 
     let filterSettings: FilterSettings
     let searchText: String

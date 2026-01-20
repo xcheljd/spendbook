@@ -23,17 +23,17 @@ struct BlurredAmountView: View {
             if isBlurred {
                 HStack(spacing: 2) {
                     Text(currencySymbol)
-                        .foregroundStyle(.secondary)
                     Text("••••")
-                        .foregroundStyle(.secondary)
                 }
-                .blur(radius: 12)
-                .accessibilityHidden(true)
+                .foregroundStyle(.secondary)
+                .accessibilityLabel("Amount hidden")
+                .accessibilityHidden(false)
             } else {
                 Text(formattedAmount)
                     .foregroundStyle(.primary)
             }
         }
+        .animation(.easeInOut(duration: 0.2), value: isBlurred)
     }
 }
 

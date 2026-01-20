@@ -16,7 +16,8 @@ struct HomeFeedView: View {
 
     @StateObject private var streakService = StreakService()
     @State private var currencyService = CurrencyService.shared
-    @State private var privacyBlurState = PrivacyBlurState.shared
+
+    private var privacyBlurState: PrivacyBlurState { PrivacyBlurState.shared }
 
     @State private var searchText = ""
     @State private var filterSettings = FilterSettings()

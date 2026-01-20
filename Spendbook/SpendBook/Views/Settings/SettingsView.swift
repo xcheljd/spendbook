@@ -12,7 +12,7 @@ struct SettingsView: View {
     @State private var securityManager = SecurityManager.shared
     @Bindable private var currencyService = CurrencyService.shared
     @Bindable private var notificationService = NotificationService.shared
-    @State private var privacyBlurState = PrivacyBlurState.shared
+    @Bindable private var privacyBlurState = PrivacyBlurState.shared
     @State private var showDeleteConfirmation = false
 
     private let exportService = DataExportService()
@@ -107,19 +107,19 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("Privacy Blur") {
-                    Toggle("Default Blur State", isOn: $privacyBlurState.defaultEnabled)
+                Section {
+                    Toggle("Enable blur on launch", isOn: $privacyBlurState.defaultEnabled)
                         .tint(Color.Catppuccin.blue)
 
-                    Toggle("Auto-reveal in Detail View", isOn: $privacyBlurState.detailAutoReveal)
+                    Toggle("Show amounts in detail view", isOn: $privacyBlurState.detailAutoReveal)
                         .tint(Color.Catppuccin.blue)
 
-                    Toggle("Auto-enable on Background", isOn: $privacyBlurState.autoEnableOnBackground)
+                    Toggle("Hide amounts when leaving app", isOn: $privacyBlurState.autoEnableOnBackground)
                         .tint(Color.Catppuccin.blue)
-
-                    Text("Amounts will be hidden in the list view when enabled. Toggle the eye icon in the header to quickly show/hide amounts.")
-                        .font(.caption)
-                        .foregroundStyle(Color.Catppuccin.subtext0)
+                } header: {
+                    Text("Privacy Blur")
+                } footer: {
+                    Text("Use the eye icon in the header to quickly show or hide amounts while using the app.")
                 }
 
                 Section("Data Sovereignty") {
