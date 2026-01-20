@@ -22,10 +22,10 @@ final class DataExportServiceTests: XCTestCase {
         let expectedHeader = "Date,Amount,Note,Tags\n"
         // Adjust expected string based on date formatter in service
         // We expect ISO8601 or similar standard for export
-        XCTAssertTrue(csv.contains(expectedHeader))
-        XCTAssertTrue(csv.contains("10.50"))
-        XCTAssertTrue(csv.contains("Lunch"))
-        XCTAssertTrue(csv.contains("Food"))
+        XCTAssertTrue(csv.contains(expectedHeader), "CSV should contain header")
+        XCTAssertTrue(csv.contains("10.5"), "CSV should contain amount") // NSDecimalNumber drops trailing zeros
+        XCTAssertTrue(csv.contains("Lunch"), "CSV should contain note")
+        XCTAssertTrue(csv.contains("Food"), "CSV should contain tag")
     }
     
     func testJSONGeneration() throws {

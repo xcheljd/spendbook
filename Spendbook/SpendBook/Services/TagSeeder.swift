@@ -12,10 +12,14 @@ struct TagSeeder {
     func seedDefaultTags() {
         let descriptor = FetchDescriptor<Tag>()
         let existingTags = (try? modelContext.fetchCount(descriptor)) ?? 0
-        
+
         guard existingTags == 0 else { return }
-        
-        createAllTags()
+
+        let tags = createAllTags()
+        for tag in tags {
+            modelContext.insert(tag)
+        }
+        try? modelContext.save()
     }
     
     func seedDefaultTagsWithoutDuplicates() {
@@ -69,9 +73,7 @@ struct TagSeeder {
         
         let salary = createTagInMemory(name: "Salary", colorHex: "#A6E3A1", parent: income)
         let freelance = createTagInMemory(name: "Freelance", colorHex: "#A6E3A1", parent: income)
-        
-        try? modelContext.save()
-        
+
         return [food, transport, entertainment, shopping, utilities, healthcare, income,
                 diningOut, groceries, coffee, publicTransit, rideshare, gas,
                 movies, music, games, clothing, electronics, gifts,
