@@ -3,6 +3,7 @@ import SwiftUI
 struct SafeToSpendCard: View {
     let amount: Decimal
     var currencyService = CurrencyService.shared
+    var isBlurred: Bool = false
 
     @State private var shake = false
 
@@ -28,7 +29,7 @@ struct SafeToSpendCard: View {
                     .fontWeight(.bold)
                     .foregroundStyle(Color.Catppuccin.base)
 
-                Text(currencyService.format(abs(amount)))
+                BlurredAmountView(amount: abs(amount), isBlurred: isBlurred)
                     .font(.system(size: 32, weight: .heavy, design: .rounded))
                     .foregroundStyle(Color.Catppuccin.base)
                     .contentTransition(.numericText())

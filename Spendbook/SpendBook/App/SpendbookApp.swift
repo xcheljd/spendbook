@@ -70,6 +70,7 @@ struct SpendbookApp: App {
                 } else if newPhase == .background {
                     securityManager.handleAppResignActive()
                     hasAuthenticatedSinceLastActive = false
+                    PrivacyBlurState.shared.enableOnBackground()
                 }
             }
             .onOpenURL { url in

@@ -7,6 +7,8 @@ struct FilteredExpenseList: View {
 
     @State private var expenseToDelete: Expense?
     @State private var showDeleteConfirmation = false
+    @State private var privacyBlurState = PrivacyBlurState.shared
+    @State private var selectedExpense: Expense?
 
     let filterSettings: FilterSettings
     let searchText: String
@@ -120,10 +122,13 @@ struct FilteredExpenseList: View {
             } else {
                 List {
                     ForEach(filteredExpenses) { expense in
-                        TransactionRow(expense: expense)
+                        TransactionRow(expense: expense, isBlurred: privacyBlurState.isEnabled)
                             .listRowBackground(Color.Catppuccin.base)
                             .listRowSeparatorTint(Color.Catppuccin.overlay0.opacity(0.2))
                             .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                            .onTapGesture {
+                                selectedExpense = expense
+                            }
                     }
                     .onDelete(perform: confirmDelete)
                 }
@@ -140,6 +145,9 @@ struct FilteredExpenseList: View {
             }
         } message: { expense in
             Text(deleteConfirmationMessage(for: expense))
+        }
+        .sheet(item: $selectedExpense) { expense in
+            ExpenseDetailView(expense: expense)
         }
     }
 

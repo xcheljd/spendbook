@@ -16,6 +16,7 @@ struct HomeFeedView: View {
 
     @StateObject private var streakService = StreakService()
     @State private var currencyService = CurrencyService.shared
+    @State private var privacyBlurState = PrivacyBlurState.shared
 
     @State private var searchText = ""
     @State private var filterSettings = FilterSettings()
@@ -106,7 +107,7 @@ struct HomeFeedView: View {
                                     .fontWeight(.bold)
                                     .foregroundStyle(theme.subtext0)
 
-                                Text(currencyService.format(totalSpentThisMonth))
+                                BlurredAmountView(amount: totalSpentThisMonth, isBlurred: privacyBlurState.isEnabled)
                                     .font(.system(size: 28, weight: .bold, design: .rounded))
                                     .foregroundStyle(theme.text)
                                     .contentTransition(.numericText())
@@ -125,14 +126,15 @@ struct HomeFeedView: View {
                         }
 
                         // Safe-to-Spend Card
-                        SafeToSpendCard(amount: safeToSpend, currencyService: currencyService)
+                        SafeToSpendCard(amount: safeToSpend, isBlurred: privacyBlurState.isEnabled)
 
                         // Forecasting View
                         if currentGoal > 0 {
                             ForecastingView(
                                 projectedSpend: projectedSpend,
                                 goal: currentGoal,
-                                exhaustionDate: exhaustionDate
+                                exhaustionDate: exhaustionDate,
+                                isBlurred: privacyBlurState.isEnabled
                             )
                         }
                     }
@@ -212,11 +214,13 @@ struct HomeFeedView: View {
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack {
+                    HStack(spacing: 8) {
                         Button(action: { showingFilterSheet = true }) {
                             Image(systemName: filterSettings.hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
                                 .foregroundStyle(theme.blue)
                         }
+
+                        PrivacyBlurToggle()
                     }
                 }
             }

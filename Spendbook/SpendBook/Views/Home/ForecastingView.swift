@@ -5,6 +5,7 @@ struct ForecastingView: View {
     let goal: Decimal
     let exhaustionDate: Date?
     var currencyService = CurrencyService.shared
+    var isBlurred: Bool = false
     
     var paceStatus: PaceStatus {
         if goal <= 0 { return .onTrack }
@@ -57,9 +58,13 @@ struct ForecastingView: View {
                         .font(.caption)
                         .foregroundColor(Color.Catppuccin.subtext0)
                 } else {
-                    Text("Projected: \(currencyService.format(projectedSpend))")
-                        .font(.caption)
-                        .foregroundColor(Color.Catppuccin.subtext0)
+                    HStack(spacing: 2) {
+                        Text("Projected:")
+                            .font(.caption)
+                            .foregroundColor(Color.Catppuccin.subtext0)
+                        BlurredAmountView(amount: projectedSpend, isBlurred: isBlurred)
+                            .font(.caption)
+                    }
                 }
             }
             

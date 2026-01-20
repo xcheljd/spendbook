@@ -4,6 +4,7 @@ struct TransactionRow: View {
     @Environment(\.colorScheme) private var colorScheme
     let expense: Expense
     var currencyService = CurrencyService.shared
+    var isBlurred: Bool = false
 
     private var theme: Theme { Theme(colorScheme) }
 
@@ -38,7 +39,7 @@ struct TransactionRow: View {
 
             Spacer()
 
-            Text(currencyService.format(expense.amount))
+            BlurredAmountView(amount: expense.amount, isBlurred: isBlurred)
                 .font(.headline)
                 .foregroundStyle(theme.text)
         }
