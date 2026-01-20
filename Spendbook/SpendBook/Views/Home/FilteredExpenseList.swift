@@ -1,11 +1,13 @@
 import SwiftUI
-import SwiftUI
 import SwiftData
 
 struct FilteredExpenseList: View {
     @Query(sort: \Expense.date, order: .reverse) private var expenses: [Expense]
     @Environment(\.modelContext) private var modelContext
-    
+
+    @State private var expenseToDelete: Expense?
+    @State private var showDeleteConfirmation = false
+
     let filterSettings: FilterSettings
     let searchText: String
     
@@ -123,19 +125,40 @@ struct FilteredExpenseList: View {
                             .listRowSeparatorTint(Color.Catppuccin.overlay0.opacity(0.2))
                             .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                     }
-                    .onDelete(perform: deleteExpenses)
+                    .onDelete(perform: confirmDelete)
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
             }
         }
-    }
-    
-    private func deleteExpenses(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(filteredExpenses[index])
+        .alert("Delete Expense?", isPresented: $showDeleteConfirmation, presenting: expenseToDelete) { expense in
+            Button("Cancel", role: .cancel) {
+                expenseToDelete = nil
             }
+            Button("Delete", role: .destructive) {
+                deleteExpense(expense)
+            }
+        } message: { expense in
+            Text(deleteConfirmationMessage(for: expense))
         }
+    }
+
+    private func confirmDelete(offsets: IndexSet) {
+        guard let index = offsets.first else { return }
+        expenseToDelete = filteredExpenses[index]
+        showDeleteConfirmation = true
+    }
+
+    private func deleteExpense(_ expense: Expense) {
+        withAnimation {
+            modelContext.delete(expense)
+        }
+        expenseToDelete = nil
+    }
+
+    private func deleteConfirmationMessage(for expense: Expense) -> String {
+        let amount = CurrencyService.shared.format(expense.amount)
+        let tagName = expense.tags?.first?.fullName ?? "Uncategorized"
+        return "\(amount) • \(tagName)"
     }
 }
