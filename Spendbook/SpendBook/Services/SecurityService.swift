@@ -37,34 +37,26 @@ class SecurityService: SecurityServiceProtocol {
 
     func canAuthenticate() -> Bool {
         var error: NSError?
-        let canEval = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
-        return canEval
+        return context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
     }
 
     /// Authenticate using the configured method
     /// Returns true if authentication succeeds, false otherwise
     func authenticate() async -> Bool {
-        let method = authenticationMethod
-
-        // If PIN only, use device passcode
-        if method == .pinOnly {
+        switch authenticationMethod {
+        case .pinOnly:
             return await authenticateWithPasscode()
-        }
 
-        // Try biometric first
-        if method == .faceIDOnly || method == .faceIDWithPINFallback {
+        case .faceIDOnly:
+            return await authenticateWithBiometrics()
+
+        case .faceIDWithPINFallback:
             let biometricSuccess = await authenticateWithBiometrics()
             if biometricSuccess {
                 return true
             }
-            // If biometric failed and fallback is enabled
-            if method == .faceIDWithPINFallback && hasPasscode {
-                return await authenticateWithPasscode()
-            }
-            return false
+            return hasPasscode ? await authenticateWithPasscode() : false
         }
-
-        return false
     }
 
     /// Authenticate using Face ID / Touch ID only

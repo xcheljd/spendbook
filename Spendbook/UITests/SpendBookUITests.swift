@@ -11,7 +11,7 @@ import XCTest
 ///
 /// Provides common test setup, teardown, and helper methods
 /// for testing the user interface interactions.
-final class SpendBookUITests: XCTestCase {
+class SpendBookUITests: XCTestCase {
 
     var app: XCUIApplication!
 
@@ -60,5 +60,18 @@ final class SpendBookUITests: XCTestCase {
         XCTAssertTrue(textField.waitForExistence(timeout: 5), "Text field not found")
         textField.tap()
         textField.typeText(text)
+    }
+}
+
+// MARK: - XCUIElement Helper Extension
+
+extension XCUIElement {
+    /// Clear all text from a text field by sending delete key presses
+    func clearText() {
+        guard let stringValue = self.value as? String else {
+            return
+        }
+        let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
+        typeText(deleteString)
     }
 }

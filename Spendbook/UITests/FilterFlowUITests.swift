@@ -172,11 +172,10 @@ final class FilterFlowUITests: SpendBookUITests {
         let expenseList = app.otherElements["FilteredExpenseList"] ?? app.otherElements["HomeFeedView"]
         XCTAssertTrue(expenseList.exists)
 
-        // Verify filter badge or indicator is shown
+        // Verify filter badge or indicator is shown (may not appear if no expenses match)
         let filterBadge = app.otherElements["ActiveFiltersView"]
-        if filterBadge.exists {
-            XCTAssertTrue(filterBadge.exists)
-        }
+        // Filter badge visibility depends on whether filters are actually applied
+        _ = filterBadge.exists
     }
 
     func testCloseFilterSheetWithoutApplying() {

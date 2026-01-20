@@ -94,12 +94,7 @@ struct AccountabilityService {
         guard let mostRecentSpendDate = sortedSpendDates.first else {
             return 0
         }
-        
-        // If the most recent spending was today, streak is 0 (already checked above, but belt & suspenders)
-        if mostRecentSpendDate == today {
-            return 0
-        }
-        
+
         // Count consecutive no-spend days from today backwards until we hit a spending day
         var streak = 0
         var checkDate = today

@@ -3,6 +3,7 @@ import SwiftUI
 import Combine
 
 /// Service that tracks personal records for logging and no-spend streaks, and manages milestone celebrations.
+@MainActor
 class StreakService: ObservableObject {
     /// The highest number of consecutive days the user has logged an expense.
     @AppStorage("bestLoggingStreak") var bestLoggingStreak: Int = 0

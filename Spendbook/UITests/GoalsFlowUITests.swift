@@ -218,16 +218,3 @@ final class GoalsFlowUITests: SpendBookUITests {
         XCTAssertTrue(waitForElement(app.otherElements["GoalsDashboardView"], timeout: 5))
     }
 }
-
-// MARK: - XCUIElement Helper Extension
-
-extension XCUIElement {
-    func clearText() {
-        guard let stringValue = self.value as? String else {
-            return
-        }
-
-        let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
-        typeText(deleteString)
-    }
-}
