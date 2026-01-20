@@ -58,8 +58,25 @@ targets:
         SWIFT_VERSION: 6.0
         GENERATE_INFOPLIST_FILE: YES
 
+  SpendBookUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - UITests
+    dependencies:
+      - target: SpendBook
+    settings:
+      base:
+        TEST_TARGET_NAME: SpendBook
+        SWIFT_VERSION: 6.0
+        GENERATE_INFOPLIST_FILE: YES
+
 schemes:
   SpendBook:
     run:
       environmentVariables:
         _XCWidgetKind: spendBookWidget
+    test:
+      testTargets:
+        - SpendBookTests
+        - SpendBookUITests
