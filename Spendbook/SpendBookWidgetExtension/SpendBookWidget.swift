@@ -63,8 +63,9 @@ struct SpendBookWidgetProvider: AppIntentTimelineProvider {
             Expense.self,
             Tag.self,
             BudgetGoal.self,
+            PaymentMethod.self,
         ])
-        
+
         let url = URL.documentsDirectory.appendingPathComponent("Spendbook.sqlite")
         let modelConfiguration = ModelConfiguration(
             schema: schema,

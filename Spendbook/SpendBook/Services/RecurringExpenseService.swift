@@ -29,13 +29,13 @@ struct RecurringExpenseService {
         let expense = Expense(
             amount: recurring.amount,
             date: Date(),
+            vendor: recurring.name,
             note: "Recurring: \(recurring.name)",
             tags: recurring.tag != nil ? [recurring.tag!] : []
         )
-        
-        // Update the next due date
+
         recurring.nextDueDate = calculateNextDueDate(after: recurring.nextDueDate, frequency: recurring.frequency)
-        
+
         return expense
     }
 }

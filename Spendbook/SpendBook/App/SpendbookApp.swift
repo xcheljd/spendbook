@@ -15,6 +15,7 @@ struct SpendbookApp: App {
             Tag.self,
             BudgetGoal.self,
             RecurringExpense.self,
+            PaymentMethod.self,
         ])
 
         let url = URL.documentsDirectory.appendingPathComponent("Spendbook.sqlite")

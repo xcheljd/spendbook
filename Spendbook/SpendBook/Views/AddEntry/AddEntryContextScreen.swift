@@ -11,6 +11,8 @@ struct AddEntryContextScreen: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var date: Date
+    @State private var vendor: String = ""
+    @State private var selectedPaymentMethod: PaymentMethod?
     @State private var selectedTags: [Tag] = []
     @State private var note: String = ""
     private var currencyService = CurrencyService.shared
@@ -25,7 +27,7 @@ struct AddEntryContextScreen: View {
     }
     
     var canSave: Bool {
-        !selectedTags.isEmpty
+        !vendor.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
     var body: some View {
@@ -49,13 +51,35 @@ struct AddEntryContextScreen: View {
                             .background(Color.Catppuccin.mantle)
                             .cornerRadius(12)
                             .foregroundColor(Color.Catppuccin.text)
-                        
-                        // Tag Picker
+
+                        // Vendor Field
                         VStack(alignment: .leading) {
-                            Text("Tags")
+                            Text("Vendor")
                                 .font(.headline)
                                 .foregroundColor(Color.Catppuccin.subtext0)
-                            
+
+                            TextField("Where did you spend?", text: $vendor)
+                                .padding()
+                                .background(Color.Catppuccin.mantle)
+                                .cornerRadius(12)
+                                .foregroundColor(Color.Catppuccin.text)
+                        }
+
+                        // Payment Method Picker
+                        VStack(alignment: .leading) {
+                            Text("Payment Method (Optional)")
+                                .font(.headline)
+                                .foregroundColor(Color.Catppuccin.subtext0)
+
+                            PaymentMethodPicker(selectedPaymentMethod: $selectedPaymentMethod)
+                        }
+
+                        // Tag Picker
+                        VStack(alignment: .leading) {
+                            Text("Tags (Optional)")
+                                .font(.headline)
+                                .foregroundColor(Color.Catppuccin.subtext0)
+
                             TagPickerView(selectedTags: $selectedTags)
                         }
                         
@@ -147,18 +171,19 @@ struct AddEntryContextScreen: View {
         let expense = Expense(
             amount: amount,
             date: date,
+            vendor: vendor.trimmingCharacters(in: .whitespacesAndNewlines),
             note: note.isEmpty ? nil : note,
             photoData: photoService.processedImageData,
-            tags: selectedTags
+            tags: selectedTags,
+            paymentMethod: selectedPaymentMethod
         )
-        
+
         modelContext.insert(expense)
-        
-        // Smart cancellation: if we just logged for today, silence today's reminder
+
         if Calendar.current.isDateInToday(date) {
             NotificationService.shared.cancelAll()
         }
-        
+
         dismiss()
     }
 }

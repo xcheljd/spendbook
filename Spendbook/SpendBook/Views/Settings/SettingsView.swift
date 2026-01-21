@@ -8,6 +8,7 @@ struct SettingsView: View {
     @Query private var expenses: [Expense]
     @Query private var tags: [Tag]
     @Query private var goals: [BudgetGoal]
+    @Query private var paymentMethods: [PaymentMethod]
 
     @State private var securityManager = SecurityManager.shared
     @Bindable private var currencyService = CurrencyService.shared
@@ -67,6 +68,10 @@ struct SettingsView: View {
                 Section("Manage") {
                     NavigationLink(destination: RecurringExpenseManagerView()) {
                         Label("Recurring Expenses", systemImage: "repeat")
+                    }
+
+                    NavigationLink(destination: PaymentMethodManagementView()) {
+                        Label("Payment Methods", systemImage: "creditcard")
                     }
 
                     NavigationLink(destination: TagManagementView()) {
@@ -182,30 +187,26 @@ struct SettingsView: View {
 
     private func deleteAllData() {
         do {
-            // Delete all expenses
             for expense in expenses {
                 modelContext.delete(expense)
             }
-            // Delete all tags
             for tag in tags {
                 modelContext.delete(tag)
             }
-            // Delete all goals
             for goal in goals {
                 modelContext.delete(goal)
+            }
+            for paymentMethod in paymentMethods {
+                modelContext.delete(paymentMethod)
             }
 
             try modelContext.save()
 
-            // Clear AppStorage streak data
             UserDefaults.standard.removeObject(forKey: "bestLoggingStreak")
             UserDefaults.standard.removeObject(forKey: "bestNoSpendStreak")
             UserDefaults.standard.removeObject(forKey: "lastMilestoneCelebrated")
-
-            // Reset onboarding flag to show onboarding again
             UserDefaults.standard.removeObject(forKey: "hasCompletedOnboarding")
 
-            // Dismiss settings view so user sees onboarding
             dismiss()
         } catch {
             print("Failed to delete data: \(error)")
